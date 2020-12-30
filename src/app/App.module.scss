@@ -1,0 +1,27 @@
+.app {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-image: url("img/Alwertus Server BG.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.topArea {
+    flex-direction: row;
+    display: flex;
+    background-color: #3e8c2a40;
+    padding: 10px;
+}
+.centerArea {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.pageList {
+    display: flex;
+    flex: 1;
+}
+.user {
+    display: flex;
+}
