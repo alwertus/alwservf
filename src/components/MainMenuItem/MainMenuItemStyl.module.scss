@@ -11,12 +11,25 @@
   font-size: 24px;
   font-weight: bold;
   color: #e4ff84;;
-  min-width: 70px;
+  //min-width: 70px;
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 .wrapper:hover {
   color: #4bff00;
-  font-weight: bold;
-  border: 2px solid #0e9bffc4;
-  background-color: #00000059;
+  border: 2px solid #56ff0e;
+}
+.text {
+  flex: 1;
+  pointer-events: none;
+}
+.ico {
+  display: flex;
+  pointer-events: none;
+}
+.act {
+  color: #00f2ffe3;
+  border: 2px solid #00c4ffab;
+  background-color: #00000045;
 }

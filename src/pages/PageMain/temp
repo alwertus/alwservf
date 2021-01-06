@@ -1,0 +1,62 @@
+// axios.post(server + "/auth/login", {httpsAgent: Axios})
+
+  {/*      <ul>
+            <li>{"Class=" + props.className}</li>
+            <li>{"count=" + count}</li>
+        </ul>
+
+        <button onClick={()=>setCount(count + 1)}>Add +1</button>
+        <button onClick={()=> dispatch({ type: "EVENT__CHANGE_ME", newValue: "CHANGE_ME" })}>change me button</button>
+*/}
+
+
+    // const [count, setCount] = useState(0);
+    // const server = useSelector(state => state.paramServerAddress); // Redux param
+    // const dispatch = useDispatch();
+
+    // let headers = new Headers();
+    // headers.append("Content-Type", "application/json;charset=utf-8");
+    // headers.append("Content-Type", "application/x-www-form-urlencoded");
+    // headers.append("Authorization", 'Basic ' + Buffer.from("" + ":" + "admin").toString('base64'));
+
+/*fetch(server + "/auth/login",{
+            method: "POST",
+            // headers: headers
+            body: formData
+        }).then( (res) => {
+            console.log("OK")
+            return `Code: ${res.status} ${res.statusText}`
+        }).then(txt => {
+            console.log("TXT", txt);
+            // This is sending the message back to the watch. You can omit for testing.
+            // messaging.peerSocket.send(txt)
+        }).catch( e => {
+            console.log("YERROR", e);
+        });*/
+/*
+
+        axios.post(server + "/auth/login", {
+            firstName: 'Fred',
+            lastName: 'Flintstone'
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+*/
+
+        // At instance level
+        /*const instance = axios.create({
+            httpsAgent: new https.Agent({
+                rejectUnauthorized: false
+            })
+        });
+        instance.get('https://something.com/foo');
+
+// At request level
+        const agent = new https.Agent({
+            rejectUnauthorized: false
+        });
+        axios.get('https://something.com/foo', { httpsAgent: agent });*/

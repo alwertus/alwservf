@@ -4,7 +4,7 @@ import style from "./TmplStyl.module.scss";
 
 export const TmplComp = props => {
     const [count, setCount] = useState(0);
-    // const server = useSelector(state => state.paramServerAddress); // Redux param
+    // const server = useSelector(state => state.OptionsServerAddress); // Redux param
     const dispatch = useDispatch();
 
     return <div className={style.wrapper}>

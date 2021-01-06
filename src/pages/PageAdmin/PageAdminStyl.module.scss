@@ -1,0 +1,26 @@
+.wrapper {
+  background-color: #c8eef79e;
+  border-radius: 6px;
+  padding: 2px 20px;
+  margin: 20px;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+}
+.newUserWrapper {
+  //border: 1px solid red;
+
+  .newUserInput {
+    margin-bottom: 10px;
+  }
+
+  .newUserButton {
+
+  }
+  .statusOK {
+    color: green;
+  }
+  .statusError {
+    color: red;
+  }
+}

@@ -1,0 +1,19 @@
+.topArea {
+  flex-direction: row;
+  display: flex;
+  background-color: #3e8c2a40;
+  padding: 10px;
+}
+.pageList {
+  display: flex;
+  flex: 1;
+}
+.user {
+  display: flex;
+}
+.userName {
+  color: #80c3ff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

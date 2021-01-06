@@ -1,24 +1,28 @@
-import React/*, {useState}*/ from "react";
-// import {/*useSelector, */useDispatch} from "react-redux";
+import React from "react";
 import style from "./PageMainStyl.module.scss";
 import {useSelector} from "react-redux";
 
-export const PageMainComp = props => {
-    // const [count, setCount] = useState(0);
-    // const server = useSelector(state => state.paramServerAddress); // Redux param
-    // const dispatch = useDispatch();
+export const PageMainComp = (props) => {
 
-    const server = useSelector(state => state.OptionsServerAddress); // Redux param
+    const server = useSelector(state => state.OptionsServerAddress);
+    const txt = useSelector(state => state.UserAuthorities);
+
+    const onLoginClick1 = () => {
+        console.clear();
+        console.log(txt.includes('admin'));
+    }
+    const onLoginClick2 = () => {
+    }
+    const onLoginClick3 = () => {
+    }
 
     return <div className={style.wrapper}>
         <p style={{color: "#ff0000"}} >Адрес сервера = {server}</p>
-  {/*      <ul>
-            <li>{"Class=" + props.className}</li>
-            <li>{"count=" + count}</li>
-        </ul>
+        <div>
+            <input type="button" onClick={onLoginClick1} value="button 1"/>
+            <input type="button" onClick={onLoginClick2} value="button 2"/>
+            <input type="button" onClick={onLoginClick3} value="button 3"/>
+        </div>
 
-        <button onClick={()=>setCount(count + 1)}>Add +1</button>
-        <button onClick={()=> dispatch({ type: "EVENT__CHANGE_ME", newValue: "CHANGE_ME" })}>change me button</button>
-*/}
     </div>
 };
