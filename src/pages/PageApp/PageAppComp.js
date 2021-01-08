@@ -1,0 +1,51 @@
+import React, {useEffect, useState} from "react";
+import style from "./PageAppStyl.module.scss";
+import Button from '@material-ui/core/Button';
+import {getAppsStatus, reloadApplicationsConfig} from "./PageAppActions";
+import {ServerApplicationComp} from "./ServerApplication/ServerApplicationComp";
+import {useSelector} from "react-redux";
+
+export const PageAppComp = () => {
+
+    let [programList, getProgramList] = useState([]);
+    let [isDataActual, setIsDataActual] = useState(false);
+    const isAdmin = useSelector(state => state.UserAuthorities).includes('admin');
+
+    let onClickReloadConfig = () => {
+        reloadApplicationsConfig(setIsDataActual);
+
+    }
+    let onClickRefresh = () => {
+
+        getAppsStatus(getProgramList);
+    }
+
+    let drawProgram = (item) => {
+        return <ServerApplicationComp key={item.id} id={item.id} isWorking={item.sp.exists} title={item.title} drawActions={isAdmin} setIsDataActualHandler={setIsDataActual}/>
+    }
+
+    useEffect(() => {
+        if (!isDataActual) {
+            setIsDataActual(true);
+            setTimeout(function() { onClickRefresh(); }, 500);
+        }
+    }, [isDataActual])
+
+    return <div className={style.wrapper}>
+
+        <div className={style.controls}>
+            <div className={style.button}>
+                <Button variant="contained" onClick={onClickReloadConfig}>
+                    Reload Config
+                </Button></div>
+
+            <div className={style.button}>
+                <Button variant="contained" onClick={onClickRefresh}>
+                    Refresh
+                </Button></div>
+        </div>
+
+        {programList.map(item => drawProgram(item))}
+
+    </div>
+};

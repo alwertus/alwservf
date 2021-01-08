@@ -9,6 +9,7 @@ import {OptionsComp} from "../pages/Options/OptionsComp";
 import {MainMenuComp} from "../components/MainMenu/MainMenuComp";
 import {LoginComp} from "../pages/Login/LoginComp";
 import {PageAdminComp} from "../pages/PageAdmin/PageAdminComp";
+import {PageAppComp} from "../pages/PageApp/PageAppComp";
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
         <div className={style.centerArea}>
             <Switch>
                 <Route exact path="/" component={PageMainComp}/>
+                <Route exact path="/applications" component={PageAppComp}/>
                 <Route exact path="/administration" component={PageAdminComp}/>
 
                 <Route exact path="/info" component={Comp1Comp}/>
