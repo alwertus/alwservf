@@ -1,23 +1,22 @@
 import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import style from "./LoginStyl.module.scss";
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {sendLogin} from "./LoginActions";
-import {AUTH, GLOBAL} from "../../store/ActionsStructure";
+import {logout, tryToLogin} from "./LoginActions";
+import {GLOBAL} from "../../store/ActionsStructure";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 
-export const LoginComp = props => {
+export const LoginComp = () => {
     updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.LOGIN);
 
-    const dispatch = useDispatch();
     const [values, setValues] = useState({
         login: '',
         password: '',
     });
     const [errortext, seterrortext] = useState('');
-    const server = useSelector(state => state.OptionsServerAddress);
+    // const server = useSelector(state => state.OptionsServerAddress);
     const isAutorized = useSelector(state => state.IsAuthorized);
 
     const handleChange = (prop) => (event) => {
@@ -36,16 +35,12 @@ export const LoginComp = props => {
             return;
         }
 
-        sendLogin(server + "/api/v1/user/current", values.login, values.password, seterrortext);
+        // sendLogin(server + "/api/v1/user/current", values.login, values.password, seterrortext);
+        tryToLogin(values.login, values.password, seterrortext);
     }
 
     const onClickLogout = () => {
-        dispatch({type: AUTH.IS_AUTHORIZED, newValue: false });
-        dispatch({type: AUTH.FIRST_NAME, newValue: "" });
-        dispatch({type: AUTH.LAST_NAME, newValue: "" });
-        dispatch({type: AUTH.AUTHORITIES, newValue: [] });
-        dispatch({type: AUTH.PASSWORD, newValue: "" });
-        dispatch({type: AUTH.EMAIL, newValue: "" });
+        logout();
     }
 
     return isAutorized

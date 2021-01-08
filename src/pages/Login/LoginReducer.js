@@ -1,4 +1,5 @@
 import {AUTH} from "../../store/ActionsStructure";
+
 import {getLocalStorageValue, setLocalStorageValue} from "../../store/LocalStorage";
 
 export function UserFirstName(state = getLocalStorageValue("firstname",""), action) {
@@ -21,8 +22,8 @@ export function UserEmail(state = getLocalStorageValue("login", ""), action) {
         ? setLocalStorageValue("login", action.newValue)
         : state;
 }
-export function UserPassword(state = getLocalStorageValue("passw", ""), action) {
-    return action.type === AUTH.PASSWORD
-        ? setLocalStorageValue("passw",action.newValue)
+export function UserToken(state = getLocalStorageValue("token", ""), action) {
+    return action.type === AUTH.TOKEN
+        ? setLocalStorageValue("token", action.newValue)
         : state;
 }

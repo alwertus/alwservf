@@ -18,8 +18,8 @@ export let AUTH = fillStruct("AUTH", {
     FIRST_NAME : "",
     LAST_NAME : "",
     EMAIL : "",
-    PASSWORD : "",
     AUTHORITIES : "",
+    TOKEN: "",
 })
 
 export let GLOBAL = fillStruct("APP", {

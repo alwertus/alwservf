@@ -1,18 +1,12 @@
-import store from "../../store/Store";
+import {getAuthHeader} from "../Login/LoginActions";
 
 export function sendUserCreate(url, newUser, setResultTextHandler, setResultStatusHandler) {
-
-    let currentEmail = store.getState().UserEmail;
-    let currentPassword = store.getState().UserPassword;
-
-    let headers = new Headers();
-    headers.append("Authorization", 'Basic ' + Buffer.from(currentEmail + ":" + currentPassword).toString('base64'));
 
     let rsStatus;
 
     fetch(url,{
         method: "POST",
-        headers: headers,
+        headers: getAuthHeader(),
         body: JSON.stringify({
             operation : "CreateUser",
             firstname: newUser.firstname,
@@ -36,11 +30,11 @@ export function sendUserCreate(url, newUser, setResultTextHandler, setResultStat
             setResultStatusHandler(-1);
             return;
         }
+
         setResultTextHandler("User created");
         setResultStatusHandler(1);
 
     }).catch( e => {
-        console.log(" ERR << ", e);
         setResultTextHandler(e);
         setResultStatusHandler(-1);
     });
