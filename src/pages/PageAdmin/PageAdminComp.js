@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import style from "./PageAdminStyl.module.scss";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {sendUserCreate} from "./PageAdminActions";
 import {useSelector} from "react-redux";
+import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
+import {GLOBAL} from "../../store/ActionsStructure";
 
-export const PageAdminComp = props => {
+export const PageAdminComp = () => {
 
     const [values, setValues] = useState({
         firstname: '',
@@ -64,6 +66,8 @@ export const PageAdminComp = props => {
             default : return "";
         }
     }
+
+    useEffect(() => updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.ADMIN),[])
 
     return <div className={style.wrapper}>
         <div className={style.newUserWrapper}>

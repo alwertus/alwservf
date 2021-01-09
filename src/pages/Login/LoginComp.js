@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import style from "./LoginStyl.module.scss";
 
@@ -9,14 +9,11 @@ import {GLOBAL} from "../../store/ActionsStructure";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 
 export const LoginComp = () => {
-    updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.LOGIN);
-
     const [values, setValues] = useState({
         login: '',
         password: '',
     });
     const [errortext, seterrortext] = useState('');
-    // const server = useSelector(state => state.OptionsServerAddress);
     const isAutorized = useSelector(state => state.IsAuthorized);
 
     const handleChange = (prop) => (event) => {
@@ -35,13 +32,14 @@ export const LoginComp = () => {
             return;
         }
 
-        // sendLogin(server + "/api/v1/user/current", values.login, values.password, seterrortext);
         tryToLogin(values.login, values.password, seterrortext);
     }
 
     const onClickLogout = () => {
         logout();
     }
+
+    useEffect(() => updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.LOGIN),[])
 
     return isAutorized
         ?

@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import {getAppsStatus, reloadApplicationsConfig} from "./PageAppActions";
 import {ServerApplicationComp} from "./ServerApplication/ServerApplicationComp";
 import {useSelector} from "react-redux";
+import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
+import {GLOBAL} from "../../store/ActionsStructure";
 
 export const PageAppComp = () => {
 
@@ -13,10 +15,8 @@ export const PageAppComp = () => {
 
     let onClickReloadConfig = () => {
         reloadApplicationsConfig(setIsDataActual);
-
     }
     let onClickRefresh = () => {
-
         getAppsStatus(getProgramList);
     }
 
@@ -30,6 +30,8 @@ export const PageAppComp = () => {
             setTimeout(function() { onClickRefresh(); }, 500);
         }
     }, [isDataActual])
+
+    useEffect(() => updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.APP),[])
 
     return <div className={style.wrapper}>
 

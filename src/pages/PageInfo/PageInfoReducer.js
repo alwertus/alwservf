@@ -1,4 +1,4 @@
-export function PageAppStateParamBool(state = false, action) {
+export function PageInfoStateParamBool(state = false, action) {
     return action.type === 'CHANGE_ME'
         ? action.newValue
         : state;

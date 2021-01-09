@@ -23,6 +23,9 @@ export const MainMenuComp = () => {
         if (userAuthorities.includes('admin')) return obj;
     }
 
+    let iconLogin = <AccountCircleIcon/>;
+    let iconOptions = <BuildIcon/>;
+
     return <div className={style.topArea}>
         <div className={style.pageList}>
                               <MainMenuItemComp id="" title="Main" name={GLOBAL.ACTIVE_PAGE_LIST.MAIN} />
@@ -33,8 +36,8 @@ export const MainMenuComp = () => {
         </div>
         <div className={style.user}>
             <div className={style.userName}>{userName}</div>
-            <MainMenuItemComp id="login" icon=<AccountCircleIcon/> name={GLOBAL.ACTIVE_PAGE_LIST.LOGIN} />
-            <MainMenuItemComp id="options" icon=<BuildIcon/> name={GLOBAL.ACTIVE_PAGE_LIST.OPTIONS} />
+            <MainMenuItemComp id="login" icon={iconLogin} name={GLOBAL.ACTIVE_PAGE_LIST.LOGIN} />
+            <MainMenuItemComp id="options" icon={iconOptions} name={GLOBAL.ACTIVE_PAGE_LIST.OPTIONS} />
         </div>
     </div>
 };

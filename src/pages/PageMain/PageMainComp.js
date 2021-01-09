@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import style from "./PageMainStyl.module.scss";
 import {useSelector} from "react-redux";
+import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
+import {GLOBAL} from "../../store/ActionsStructure";
 
-export const PageMainComp = (props) => {
+export const PageMainComp = () => {
 
     const server = useSelector(state => state.OptionsServerAddress);
     const txt = useSelector(state => state.UserAuthorities);
@@ -15,6 +17,8 @@ export const PageMainComp = (props) => {
     }
     const onLoginClick3 = () => {
     }
+
+    useEffect(() => updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.MAIN),[])
 
     return <div className={style.wrapper}>
         <p style={{color: "#ff0000"}} >Адрес сервера = {server}</p>

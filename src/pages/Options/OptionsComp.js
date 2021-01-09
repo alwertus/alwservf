@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import style from "./OptionsStyl.module.scss";
 import {GLOBAL} from "../../store/ActionsStructure";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 import {OPTIONS} from "../../store/ActionsStructure";
 
-export const OptionsComp = props => {
+export const OptionsComp = () => {
 
     const SERVER_LOCAL = "https://192.168.1.8:5188";
     const SERVER_INTERNET = "https://alwertus.zapto.org";
@@ -14,7 +14,7 @@ export const OptionsComp = props => {
     const [NewServerAddress, setNewServerAddress] = useState(server);
     const dispatch = useDispatch();
 
-    updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.OPTIONS);
+    useEffect(() => updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.OPTIONS),[])
 
     return <div className={style.wrapper}>
         <div className={style.serverAddress}>

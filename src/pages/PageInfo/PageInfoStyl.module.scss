@@ -1,0 +1,27 @@
+.wrapper {
+  flex: 1;
+  display: flex;
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+}
+.panelMenu {
+  @extend .panel;
+}
+.panelInfo {
+  @extend .panel;
+  flex: 1;
+}
+.cell {
+  background-color: #56ff0e6b;
+  margin: 2px;
+}
+.cellMenu {
+  @extend .cell;
+  height: 30px;
+}
+.cellInfo {
+  @extend .cell;
+  flex: 1;
+}

@@ -2,7 +2,6 @@ import React from "react";
 import style from'./App.module.scss';
 import {Route, Switch} from 'react-router-dom';
 
-import {Comp1Comp} from "../components/Comp1/Comp1Comp";
 import {Comp2Comp} from "../components/Comp2/Comp2Comp";
 import {PageMainComp} from "../pages/PageMain/PageMainComp";
 import {OptionsComp} from "../pages/Options/OptionsComp";
@@ -10,6 +9,7 @@ import {MainMenuComp} from "../components/MainMenu/MainMenuComp";
 import {LoginComp} from "../pages/Login/LoginComp";
 import {PageAdminComp} from "../pages/PageAdmin/PageAdminComp";
 import {PageAppComp} from "../pages/PageApp/PageAppComp";
+import {PageInfoComp} from "../pages/PageInfo/PageInfoComp";
 
 const App = () => {
 
@@ -21,7 +21,7 @@ const App = () => {
                 <Route exact path="/applications" component={PageAppComp}/>
                 <Route exact path="/administration" component={PageAdminComp}/>
 
-                <Route exact path="/info" component={Comp1Comp}/>
+                <Route exact path="/info" component={PageInfoComp}/>
                 <Route exact path="/doings" component={Comp2Comp}/>
                 <Route exact path="/options" component={OptionsComp}/>
                 <Route exact path="/login" component={LoginComp}/>
