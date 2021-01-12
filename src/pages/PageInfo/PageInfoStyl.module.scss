@@ -2,6 +2,7 @@
   flex: 1;
   display: flex;
 }
+
 .panel {
   display: flex;
   flex-direction: column;
@@ -9,19 +10,22 @@
 .panelMenu {
   @extend .panel;
 }
-.panelInfo {
+.panelPage {
   @extend .panel;
   flex: 1;
 }
+
 .cell {
-  background-color: #56ff0e6b;
+  background-color: #eafff8cc;
   margin: 2px;
 }
-.cellMenu {
+.cellUp {
   @extend .cell;
-  height: 30px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
-.cellInfo {
+.cellDown {
   @extend .cell;
   flex: 1;
 }

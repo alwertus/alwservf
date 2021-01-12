@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux';
 import {OptionsServerAddress} from "../pages/Options/OptionsReducer";
-import {IsAuthorized, ActivePage} from "../components/MainMenu/MainMenuReducer";
-import {UserFirstName, UserLastName, UserAuthorities, UserEmail, UserToken} from "../pages/Login/LoginReducer";
+import {ActivePage, IsAuthorized} from "../components/MainMenu/MainMenuReducer";
+import {UserAuthorities, UserEmail, UserFirstName, UserLastName, UserToken} from "../pages/Login/LoginReducer";
+import {PageInfoListPrivate, PageInfoListPublic, PageInfoPrivateExpandedSet} from "../pages/PageInfo/parts/InfoTree/InfoTreeReducer";
 
 export default combineReducers({
     OptionsServerAddress,
@@ -9,4 +10,6 @@ export default combineReducers({
     ActivePage,
 
     UserFirstName, UserLastName, UserAuthorities, UserEmail, UserToken,
+
+    PageInfoListPublic, PageInfoListPrivate, PageInfoPrivateExpandedSet,
 });

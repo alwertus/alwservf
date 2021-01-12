@@ -1,0 +1,16 @@
+.wrapper {
+  .elementLine {
+    //border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.input {
+  background-color: #00000000;
+  flex: 1;
+  margin-left: 6px;
+  border-color: #6eb36a;
+  border-radius: 4px;
+  height: 18px;
+}

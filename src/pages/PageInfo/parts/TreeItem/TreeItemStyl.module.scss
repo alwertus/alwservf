@@ -1,0 +1,54 @@
+$shift: 11px;
+
+.wrapper {
+  //border: 1px solid grey;
+  //height: 40px;
+  display: flex;
+  //align-items: center;
+  //justify-content: center;
+  //padding-left: $indent;
+  flex-direction: column;
+
+  .elementLine {
+    //border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .expandCollapseIcon {
+      //border: 1px solid green;
+      display: flex;
+      //pointer-events: none;
+      cursor: pointer;
+    }
+    .emptyIcon {
+      //width: 24px;
+      display: flex;
+      margin-left: 2px;
+    }
+    .title {
+      //border: 1px solid black;
+      display: flex;
+      flex: 1;
+      user-select: none;
+    }
+
+  }
+
+  .childrenContainer {
+    padding-left: $shift;
+
+    .childrenWrapper {
+      border-left: 2px solid black;
+    }
+  }
+}
+
+.selected {
+  color: green;
+}
+.badSelected {
+  color: red;
+}
+
+

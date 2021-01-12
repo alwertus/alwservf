@@ -3,15 +3,14 @@ import style from "./PageMainStyl.module.scss";
 import {useSelector} from "react-redux";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 import {GLOBAL} from "../../store/ActionsStructure";
+import {button1Reaction} from "./PageMainActions";
 
 export const PageMainComp = () => {
 
     const server = useSelector(state => state.OptionsServerAddress);
-    const txt = useSelector(state => state.UserAuthorities);
 
     const onLoginClick1 = () => {
-        console.clear();
-        console.log(txt.includes('admin'));
+        button1Reaction();
     }
     const onLoginClick2 = () => {
     }
