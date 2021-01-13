@@ -4,14 +4,16 @@ import {ActionButtonComp} from "../../../../components/ActionButton/ActionButton
 import OkIcon from "@material-ui/icons/CheckCircleRounded";
 import {INFO} from "../../../../store/ActionsStructure";
 import {upsert} from "./TreeItemAddActions";
+import {useDispatch} from "react-redux";
 
 export const TreeItemAddComp = props => {
-    let [titleText, setTitleText] = useState("");
+    let [titleText, setTitleText] = useState(props.defaultText);
+    const dispatch = useDispatch();
 
     let onOKClickHandler = () => {
-        if (!titleText || titleText === "") return;
+        if (!titleText || titleText === "" || props.defaultText === titleText) return;
         console.log("ONCLICK", "id", "parent", titleText)
-        upsert(titleText);
+        upsert(titleText, props.id);
     }
 
     let onChangeTitleHandler = (e) => {
@@ -23,13 +25,15 @@ export const TreeItemAddComp = props => {
             onOKClickHandler();
         }
         if (e.key === 'Escape') {
-            props.setModeHandler(INFO.TREE_MODE.NORMAL)
+            dispatch({type:INFO.SET_TREE_MODE, newValue:INFO.TREE_MODE.NORMAL})
         }
     }
 
     return <div className={style.wrapper}>
         <div className={style.elementLine}>
-            <input className={style.input} placeholder="Title" onChange={onChangeTitleHandler} onKeyDown={onKeyPressHandler} autoFocus={true}/>
+            <div className={style.inputWrapper}>
+                <input className={style.input} placeholder="Title" onChange={onChangeTitleHandler} onKeyDown={onKeyPressHandler} autoFocus={true} defaultValue={props.defaultText}/>
+            </div>
             <ActionButtonComp icon={<OkIcon style={{color: "#05520c"}}/>} onClickHandler={onOKClickHandler}/>
         </div>
     </div>

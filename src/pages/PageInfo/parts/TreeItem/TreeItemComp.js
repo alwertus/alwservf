@@ -6,10 +6,16 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DotIcon from '@material-ui/icons/FiberManualRecord';
 import {useDispatch, useSelector} from "react-redux";
 import {MoveElementComp} from "../MoveElement/MoveElementComp";
+import {setPageInfoTreeMode} from "../InfoTree/InfoTreeActions";
+import {TreeItemAddComp} from "../TreeItemAdd/TreeItemAddComp";
 
 export const TreeItemComp = props => {
-    let privateExpandedSet = new Set(useSelector(state => state.PageInfoPrivateExpandedSet));
-    let dispatch = useDispatch();
+    const privateExpandedSet = new Set(useSelector(state => state.PageInfoPrivateExpandedSet));
+    const badTargetsToMove = useSelector(state => state.PageInfoBadTargetsToMove);
+    const infoSelectedPage = useSelector(state => state.InfoSelectedPage);
+    let mode = useSelector(state => state.PageInfoTreeMode);
+    const [selectedClass, setSelectedClass] = useState("");
+    const dispatch = useDispatch();
 
     let onClickExpandCollapseIcon = () => {
         if (privateExpandedSet.has(props.item.id)) {
@@ -22,45 +28,25 @@ export const TreeItemComp = props => {
     }
 
     let onMouseEnter = () => {
-        if (props.mode === INFO.TREE_MODE.MOVE)
-            props.setMoveToElement(props.item.id)
+        if (mode === INFO.TREE_MODE.MOVE) {
+            if (badTargetsToMove.has(props.item.id))
+                setSelectedClass(" " + style.badSelected);
+            else
+                setSelectedClass(" " + style.selected);
+        }
     }
 
     let onMouseLeave = () => {
-        props.setMoveToElement(0)
+        setSelectedClass("");
     }
 
-    function addChildrenToBadSet(childrenArr, badSet) {
-        if (childrenArr === undefined || childrenArr === null) return;
-        childrenArr.forEach(e => {
-            badSet.add(e.id);
-            addChildrenToBadSet(e.children, badSet)
-        })
+    let onClick = () => {
+        if (mode === INFO.TREE_MODE.EDIT) return;
+        dispatch({type:INFO.SELECTED_PAGE, newValue:props.item.id})
     }
 
-    let onStartMove = () => {
-        props.setMode(INFO.TREE_MODE.MOVE)
-        let badSet = new Set();
-        badSet.add(props.item.id);
-
-        addChildrenToBadSet(props.item.children, badSet)
-        props.setBadMoveSet(badSet);
-    }
-
-    let onEndMove = (startId, endId) => {
-        console.log(startId, endId, props.item.id)
-        /////////action
-
-        console.log(props.badMoveSet)
-        // if (props.moveToElement === props.item.id) {
-            if (props.badMoveSet.has(endId))
-                console.log("NOT MOVE")
-            else
-                console.log("MOVE " + startId + " to " + endId)
-        // }
-
-        props.setMode(INFO.TREE_MODE.NORMAL)
-        // props.setMoveToElement(0)
+    let onDoubleClick = () => {
+        dispatch(setPageInfoTreeMode(INFO.TREE_MODE.EDIT));
     }
 
     let drawChildren = () => {
@@ -71,12 +57,6 @@ export const TreeItemComp = props => {
                     <TreeItemComp
                         key={e.id}
                         item={e}
-                        mode={props.mode}
-                        setMode={props.setMode}
-                        setMoveToElement={props.setMoveToElement}
-                        moveToElement={props.moveToElement}
-                        badMoveSet={props.badMoveSet}
-                        setBadMoveSet={props.setBadMoveSet}
                     />)
                 }
             </div>
@@ -93,26 +73,35 @@ export const TreeItemComp = props => {
         </div>
     }
 
-    function calcMoveClass() {
-        if (props.moveToElement === props.item.id) {
-            if (props.badMoveSet.has(props.item.id))
-                return " " + style.badSelected;
-            else
-                return " " + style.selected;
-        } else
-            return "";
+    let drawLine = () => {
+        if (mode === INFO.TREE_MODE.EDIT && props.item.id === infoSelectedPage)
+            return <TreeItemAddComp
+                defaultText={props.item.title}
+                id={props.item.id}
+            />
+
+        return <div className={ style.title + selectedClass + (props.item.id === infoSelectedPage ? " " + style.showedPage : "")}
+                    id={props.item.id}
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                    onDoubleClick={onDoubleClick}
+                    onClick={onClick}
+        >
+            {"[" + props.item.id + "] " + props.item.title}
+        </div>
+    }
+
+    let drawMoveElement = () => {
+        if (mode === INFO.TREE_MODE.EDIT && props.item.id === infoSelectedPage) return;
+        return <MoveElementComp
+            item={props.item}/>
     }
 
     return <div className={style.wrapper}>
             <div className={style.elementLine}>
                 {drawIcon()}
-                <div className={ style.title + calcMoveClass() }
-                     id={props.item.id}
-                     onMouseEnter={onMouseEnter}
-                     onMouseLeave={onMouseLeave}>
-                    {"[" + props.item.id + "] " + props.item.title}
-                </div>
-                <MoveElementComp setMode={props.setMode} onStartMove={onStartMove} onEndMove={onEndMove} id={props.item.id}/>
+                {drawLine()}
+                {drawMoveElement()}
             </div>
             {drawChildren()}
      </div>

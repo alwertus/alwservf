@@ -36,14 +36,16 @@ export let GLOBAL = fillStruct("APP", {
 })
 
 export let INFO = fillStruct("INFO", {
+    MOVE_BAD_TARGETS: "",
     PRIVATE_LIST_DATA: "",
     PRIVATE_EXPANDED_SET: "",
     PUBLIC_LIST_DATA: "",
+    SET_TREE_MODE: "",
     TREE_MODE : {
         NORMAL : "",
         ADD: "",
         EDIT: "",
         MOVE: "",
-
-    }
+    },
+    SELECTED_PAGE: "",
 })

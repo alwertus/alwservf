@@ -1,3 +1,21 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
+
+.cell {
+  background-color: #eafff8cc;
+  margin: 2px;
+}
+.cellUp {
+  @extend .cell;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.cellDown {
+  @extend .cell;
+  flex: 1;
 }

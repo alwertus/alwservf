@@ -5,11 +5,16 @@ import {ResizerComp} from "../../components/Resizer/ResizerComp";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 import {GLOBAL} from "../../store/ActionsStructure";
 import {InfoTreeComp} from "./parts/InfoTree/InfoTreeComp";
+import {InfoPageComp} from "./parts/InfoPage/InfoPageComp";
+import {getTreeList} from "./parts/InfoTree/InfoTreeActions";
 
 export const PageInfoComp = () => {
-    const [panelWidth, setPanelWidth] = useState(Number(getLocalStorageValue('MenuPanelWidth', 100)));
+    const [panelWidth, setPanelWidth] = useState(Number(getLocalStorageValue('MenuPanelWidth', 200)));
 
-    useEffect(() => updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.INFO),[])
+    useEffect(() => {
+        updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.INFO)
+        getTreeList()
+    },[])
 
     return <div className={style.wrapper}>
         <div className={style.panelMenu} style={{"width":panelWidth+"px", "minWidth":panelWidth+"px", "maxWidth":panelWidth+"px"}}>
@@ -22,11 +27,7 @@ export const PageInfoComp = () => {
         <ResizerComp currentValue={panelWidth} setNewValue={setPanelWidth} />
 
         <div className={style.panelPage}>
-
-            <div className={style.cellUp}>2</div>
-
-            <div className={style.cellDown}>4</div>
-
+            <InfoPageComp/>
         </div>
     </div>
 }

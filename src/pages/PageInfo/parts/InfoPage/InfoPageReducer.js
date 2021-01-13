@@ -1,5 +1,7 @@
-export function InfoPageStateParamBool(state = false, action) {
-    return action.type === 'CHANGE_ME'
+import {INFO} from "../../../../store/ActionsStructure";
+
+export function InfoSelectedPage(state = "", action) {
+    return action.type === INFO.SELECTED_PAGE
         ? action.newValue
         : state;
 }

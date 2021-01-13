@@ -16,3 +16,8 @@ export function PageInfoPrivateExpandedSet(state = [], action) {
         ? action.newValue
         : state;
 }
+export function PageInfoTreeMode(state = INFO.TREE_MODE.NORMAL, action) {
+    return action.type === INFO.SET_TREE_MODE
+        ? action.newValue
+        : state;
+}
