@@ -19,7 +19,7 @@ export function getPage(id, setModeHandler, setHtmlHandler) {
         rsStatus = res.status;
         return res.json();
     }).then(rs => {
-        console.log("RESULT", rs, rsStatus)
+        // console.log("RESULT", rs, rsStatus)
         if (rsStatus === 200 && rs['Result'] === "OK") {
             setModeHandler(INFO.PAGE_MODE_VALUES.ACTUAL);
             setHtmlHandler(rs['Html']);
