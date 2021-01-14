@@ -11,7 +11,12 @@ export const TreeItemAddComp = props => {
     const dispatch = useDispatch();
 
     let onOKClickHandler = () => {
-        if (!titleText || titleText === "" || props.defaultText === titleText) return;
+        if (!titleText || titleText === "") return;
+        if (props.defaultText === titleText) {
+            cancel();
+            return;
+        }
+
         console.log("ONCLICK", "id", "parent", titleText)
         upsert(titleText, props.id);
     }
@@ -20,12 +25,16 @@ export const TreeItemAddComp = props => {
         setTitleText(e.target.value);
     }
 
+    function cancel() {
+        dispatch({type:INFO.SET_TREE_MODE, newValue:INFO.TREE_MODE.NORMAL})
+    }
+
     let onKeyPressHandler = (e) => {
         if (e.key === 'Enter') {
             onOKClickHandler();
         }
         if (e.key === 'Escape') {
-            dispatch({type:INFO.SET_TREE_MODE, newValue:INFO.TREE_MODE.NORMAL})
+            cancel();
         }
     }
 

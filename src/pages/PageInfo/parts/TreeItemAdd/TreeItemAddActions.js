@@ -20,7 +20,7 @@ export function upsert(newTitle, id) {
         rsStatus = rs.status;
         return rs.json();
     }).then(rs => {
-        console.log("RESULT", rs, rsStatus)
+        // console.log("RESULT", rs, rsStatus)
         if (rsStatus !== 200) {
             // let rsError = rs.error;
             // setResultTextHandler(rsError);

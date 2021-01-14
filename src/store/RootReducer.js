@@ -9,7 +9,7 @@ import {
     PageInfoTreeMode
 } from "../pages/PageInfo/parts/InfoTree/InfoTreeReducer";
 import {PageInfoBadTargetsToMove} from "../pages/PageInfo/parts/MoveElement/MoveElementReducer";
-import {InfoSelectedPage} from "../pages/PageInfo/parts/InfoPage/InfoPageReducer";
+import {InfoPageMode, InfoSelectedPage} from "../pages/PageInfo/parts/InfoPage/InfoPageReducer";
 
 export default combineReducers({
     OptionsServerAddress,
@@ -20,5 +20,5 @@ export default combineReducers({
 
     PageInfoListPublic, PageInfoListPrivate, PageInfoPrivateExpandedSet, PageInfoBadTargetsToMove, PageInfoTreeMode,
 
-    InfoSelectedPage,
+    InfoSelectedPage, InfoPageMode,
 });

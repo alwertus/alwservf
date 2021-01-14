@@ -5,3 +5,10 @@ export function InfoSelectedPage(state = "", action) {
         ? action.newValue
         : state;
 }
+
+export function InfoPageMode(state = INFO.PAGE_MODE_VALUES.NOT_SELECTED, action) {
+    return action.type === INFO.PAGE_MODE
+        ? action.newValue
+        : state;
+}
+

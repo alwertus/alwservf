@@ -40,6 +40,7 @@ export let INFO = fillStruct("INFO", {
     PRIVATE_LIST_DATA: "",
     PRIVATE_EXPANDED_SET: "",
     PUBLIC_LIST_DATA: "",
+
     SET_TREE_MODE: "",
     TREE_MODE : {
         NORMAL : "",
@@ -47,5 +48,16 @@ export let INFO = fillStruct("INFO", {
         EDIT: "",
         MOVE: "",
     },
+
     SELECTED_PAGE: "",
+
+    PAGE_MODE: "",
+    PAGE_MODE_VALUES : {
+        ACTUAL : "",
+        OUTDATED : "",
+        LOADING : "",
+        ERROR: "",
+        EDITING: "",
+        NOT_SELECTED: "",
+    }
 })

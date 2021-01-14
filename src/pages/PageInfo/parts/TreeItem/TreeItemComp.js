@@ -43,6 +43,7 @@ export const TreeItemComp = props => {
     let onClick = () => {
         if (mode === INFO.TREE_MODE.EDIT) return;
         dispatch({type:INFO.SELECTED_PAGE, newValue:props.item.id})
+        dispatch({type:INFO.PAGE_MODE, newValue: INFO.PAGE_MODE_VALUES.OUTDATED})
     }
 
     let onDoubleClick = () => {
