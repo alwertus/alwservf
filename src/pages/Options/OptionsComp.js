@@ -7,8 +7,8 @@ import {OPTIONS} from "../../store/ActionsStructure";
 
 export const OptionsComp = () => {
 
-    const SERVER_LOCAL = "https://192.168.1.8:5188";
-    const SERVER_INTERNET = "https://alwertus.zapto.org";
+    const SERVER_LOCAL = "http://192.168.1.8:7000";
+    const SERVER_INTERNET = "http://alwertus.zapto.org:7000";
 
     const server = useSelector(state => state.OptionsServerAddress);
     const [NewServerAddress, setNewServerAddress] = useState(server);
