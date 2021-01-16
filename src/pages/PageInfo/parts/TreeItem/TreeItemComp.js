@@ -88,7 +88,7 @@ export const TreeItemComp = props => {
                     onDoubleClick={onDoubleClick}
                     onClick={onClick}
         >
-            {"[" + props.item.id + "] " + props.item.title}
+            {/*"[" + props.item.id + "] " + */props.item.title}
         </div>
     }
 

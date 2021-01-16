@@ -3,19 +3,19 @@ import style from "./PageMainStyl.module.scss";
 import {useSelector} from "react-redux";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 import {GLOBAL} from "../../store/ActionsStructure";
-import {button1Reaction} from "./PageMainActions";
+// import {button1Reaction} from "./PageMainActions";
 
 export const PageMainComp = () => {
 
     const server = useSelector(state => state.OptionsServerAddress);
 
-    const onLoginClick1 = () => {
+    /*const onLoginClick1 = () => {
         button1Reaction();
     }
     const onLoginClick2 = () => {
     }
     const onLoginClick3 = () => {
-    }
+    }*/
 
     useEffect(() => updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.MAIN),[])
 
