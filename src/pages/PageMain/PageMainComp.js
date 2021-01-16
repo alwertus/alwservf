@@ -19,13 +19,15 @@ export const PageMainComp = () => {
 
     useEffect(() => updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.MAIN),[])
 
-    return <div className={style.wrapper}>
-        <p style={{color: "#ff0000"}} >Адрес сервера = {server}</p>
-        <div>
+    /*
+    <div>
             <input type="button" onClick={onLoginClick1} value="button 1"/>
             <input type="button" onClick={onLoginClick2} value="button 2"/>
             <input type="button" onClick={onLoginClick3} value="button 3"/>
         </div>
+     */
 
+    return <div className={style.wrapper}>
+        <p style={{color: "#ff0000"}} >Адрес сервера = {server}</p>
     </div>
 };
