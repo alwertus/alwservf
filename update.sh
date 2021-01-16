@@ -4,15 +4,14 @@ srcDir="$HOME/apps/git/alwservf"
 targetDir="$HOME/apps/server/alwservf"
 
 function compile {
-  npm install &&
   npm run build || return 1
 }
 
 function copy {
-  echo "Copy build..."
-  mkdir -p "$targetDir"
+  echo "Copy new build..."
+  rm -r "$targetDir"/static
   mv "$srcDir"/build "$targetDir"/static
   echo "Success!"
 }
 
-compile && copy
+git pull && compile && copy
