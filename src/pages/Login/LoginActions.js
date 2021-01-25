@@ -6,16 +6,19 @@ export function tryToLogin(login, password, errorTextHandler) {
     let url = store.getState().OptionsServerAddress + "/login";
     let rsStatus;
 
+
     fetch(url, {
         method: "POST",
         body: JSON.stringify({
             "username": login,
             "password": password
         })
-    }).then((rs) => {
+    })
+        .then((rs) => {
             rsStatus = rs.status;
             return rs.json();
-        }).then((rs) => {
+        })
+        .then((rs) => {
             if (rsStatus !== 200) {
                 let rsError = rs.error;
                 errorTextHandler(rsError);
@@ -28,8 +31,10 @@ export function tryToLogin(login, password, errorTextHandler) {
             dispatch({type: AUTH.EMAIL, newValue: login});
             dispatch({type: AUTH.AUTHORITIES, newValue: rs.Authorities.map(a => a.authority)});
             dispatch({type: AUTH.TOKEN, newValue: rs.Authorization});
-        }).catch( e => { errorTextHandler(e); });
-
+        })
+        .catch(e => {
+            errorTextHandler("Error sending message to server (" + e + ")")
+        });
 }
 
 export function logout() {

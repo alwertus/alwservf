@@ -57,7 +57,7 @@ export const InfoPageComp = props => {
             case MODES.ERROR:
                 return <div className={style.page}>Error</div>
             case MODES.NOT_SELECTED:
-                return <div className={style.page}>Choise the page</div>
+                return <div className={style.page}>Choose the page</div>
             case MODES.EDITING:
                 return <div className={style.page}>{editor}</div>
             default:
