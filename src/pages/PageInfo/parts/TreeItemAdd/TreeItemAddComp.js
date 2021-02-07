@@ -4,10 +4,11 @@ import {ActionButtonComp} from "../../../../components/ActionButton/ActionButton
 import OkIcon from "@material-ui/icons/CheckCircleRounded";
 import {INFO} from "../../../../store/ActionsStructure";
 import {upsert} from "./TreeItemAddActions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 export const TreeItemAddComp = props => {
     let [titleText, setTitleText] = useState(props.defaultText);
+    const infoSelectedPage = useSelector(state => state.InfoSelectedPage);
     const dispatch = useDispatch();
 
     let onOKClickHandler = () => {
@@ -17,8 +18,8 @@ export const TreeItemAddComp = props => {
             return;
         }
 
-        console.log("ONCLICK", "id", "parent", titleText)
-        upsert(titleText, props.id);
+        console.log("ONCLICK parent", infoSelectedPage)
+        upsert(titleText, props.id, infoSelectedPage);
     }
 
     let onChangeTitleHandler = (e) => {

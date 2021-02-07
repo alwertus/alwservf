@@ -11,4 +11,3 @@ export function InfoPageMode(state = INFO.PAGE_MODE_VALUES.NOT_SELECTED, action)
         ? action.newValue
         : state;
 }
-

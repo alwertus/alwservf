@@ -3,7 +3,7 @@ import store from "../../../../store/Store";
 import {INFO} from "../../../../store/ActionsStructure";
 import {convertToTree} from "../InfoTree/InfoTreeActions";
 
-export function upsert(newTitle, id) {
+export function upsert(newTitle, id, parentId) {
     let url = store.getState().OptionsServerAddress + "/api/v1/infolist";
     const dispatch = store.dispatch;
     let rsStatus = 0;
@@ -14,7 +14,8 @@ export function upsert(newTitle, id) {
         body: JSON.stringify({
             Operation : "Upsert",
             Id : id,
-            Title : newTitle
+            Title : newTitle,
+            Parent: parentId
         })
     }).then( (rs) => {
         rsStatus = rs.status;

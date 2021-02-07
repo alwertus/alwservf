@@ -16,6 +16,7 @@ export const InfoTreeComp = props => {
     const dispatch = useDispatch();
     let [rootClass, setRootClass] = useState("");
 
+
     let onRootMouseEnter = () => {
         if (treeMode === INFO.TREE_MODE.MOVE) {
             setRootClass(" " + style.moveSelected);
@@ -24,6 +25,12 @@ export const InfoTreeComp = props => {
 
     let onRootMouseLeave = () => {
         setRootClass("");
+    }
+
+    let onRootClick = () => {
+        if (treeMode === INFO.TREE_MODE.EDIT) return;
+        dispatch({type:INFO.SELECTED_PAGE, newValue:""})
+        dispatch({type:INFO.PAGE_MODE, newValue: INFO.PAGE_MODE_VALUES.NOT_SELECTED})
     }
 
     let drawAddItem = () => treeMode === INFO.TREE_MODE.ADD ? <TreeItemAddComp id={0}/> : null;
@@ -39,17 +46,20 @@ export const InfoTreeComp = props => {
             color={"#05520cd9"}
         />
 
+
+
     return <div className={style.wrapper}>
+
+
 
         <div className={props.styleCellUp}>
             {drawAddButton()}
-            {/*<ActionButtonComp title={"GetList"} onClickHandler={()=>{getTreeList()}}/>*/}
-            {/*<ActionButtonComp icon={"i3"} title={"Title 3"}/>*/}
         </div>
 
         <div className={props.styleCellDown}>
             <div className={style.rootElement + rootClass}
                  id={0}
+                 onClick={onRootClick}
                  onMouseEnter={onRootMouseEnter}
                  onMouseLeave={onRootMouseLeave}>
                 root</div>

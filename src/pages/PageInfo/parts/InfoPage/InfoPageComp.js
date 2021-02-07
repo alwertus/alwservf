@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './InfoPageCustom.css';
 import style from "./InfoPageStyl.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {getPage, setPage} from "./InfoPageActions";
@@ -7,10 +8,12 @@ import TextEditIcon from '@material-ui/icons/AssignmentOutlined';
 import {ActionButtonComp} from "../../../../components/ActionButton/ActionButtonComp";
 import TextEditCancelIcon from '@material-ui/icons/CancelRounded';
 import TextEditOKIcon from '@material-ui/icons/CheckCircleRounded';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/theme-kuroir";
+import {DialogBoxComp} from "../../../../components/DialogBox/DialogBoxComp";
 
 export const InfoPageComp = props => {
     const dispatch = useDispatch();
@@ -19,6 +22,7 @@ export const InfoPageComp = props => {
     const [html, setHtml] = useState("");
     const [tempHtml, setTempHtml] = useState("");
     const MODES = INFO.PAGE_MODE_VALUES;
+    let [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
     if (mode === MODES.OUTDATED)
         getPage(infoSelectedPage, (newVal)=>dispatch({type:INFO.PAGE_MODE, newValue: newVal}), setHtml);
@@ -69,23 +73,31 @@ export const InfoPageComp = props => {
         if (mode === MODES.ACTUAL)
             return <div className={style.controlGroup}>
                 <ActionButtonComp
-                    icon={<TextEditIcon/>}
+                    icon={<TextEditIcon fontSize="large"/>}
                     onClickHandler={() => {
                         dispatch({type:INFO.PAGE_MODE, newValue: MODES.EDITING})
                     }}
                 />
+                <ActionButtonComp
+                    icon={<DeleteForeverIcon fontSize="large"/>}
+                    onClickHandler={() => {
+                        console.log("REMOVE", infoSelectedPage)
+                        setShowDeleteDialog(true);
+                    }}
+                />
+
             </div>
         if (mode === MODES.EDITING)
             return <div className={style.controlGroup}>
                 <ActionButtonComp
-                    icon={<TextEditCancelIcon/>}
+                    icon={<TextEditCancelIcon fontSize="large"/>}
                     color='#940202d9'
                     onClickHandler={() => {
                         dispatch({type:INFO.PAGE_MODE, newValue: MODES.ACTUAL})
                     }}
                 />
                 <ActionButtonComp
-                    icon={<TextEditOKIcon/>}
+                    icon={<TextEditOKIcon fontSize="large"/>}
                     color='#05520cd9'
                     onClickHandler={() => {
                         onPageChangeOkButton();
@@ -95,7 +107,20 @@ export const InfoPageComp = props => {
             </div>
     }
 
+    let drawDeleteDialogBox = () => showDeleteDialog
+        ? <DialogBoxComp
+            message={"Zazaza"}
+            onCancelClick={() => {setShowDeleteDialog(false)}}
+            onOkClick={() => {
+
+                setShowDeleteDialog(false);
+            }}
+        /> : null;
+
     return <div className={style.wrapper}>
+
+        {drawDeleteDialogBox()}
+
         <div className={style.cellUp}>
             {drawControls()}
         </div>
