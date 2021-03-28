@@ -30,7 +30,8 @@ export const MainMenuComp = () => {
         <div className={style.pageList}>
                               <MainMenuItemComp id="" title="Main" name={GLOBAL.ACTIVE_PAGE_LIST.MAIN} />
             {drawIfAuthorized(<MainMenuItemComp id="info" title="Info" name={GLOBAL.ACTIVE_PAGE_LIST.INFO} />)}
-            {drawIfAuthorized(<MainMenuItemComp id="doings" title="Doings" name={GLOBAL.ACTIVE_PAGE_LIST.DOINGS} />)}
+            {drawIfAuthorized(<MainMenuItemComp id="cash" title="Cash" name={GLOBAL.ACTIVE_PAGE_LIST.CASH} />)}
+            {/*{drawIfAuthorized(<MainMenuItemComp id="doings" title="Doings" name={GLOBAL.ACTIVE_PAGE_LIST.DOINGS} />)}*/}
             {drawIfAuthorized(<MainMenuItemComp id="applications" title="App" name={GLOBAL.ACTIVE_PAGE_LIST.APP} />)}
             {drawIfAuthorized(drawIfAdmin(<MainMenuItemComp id="administration" title="Admin" name={GLOBAL.ACTIVE_PAGE_LIST.ADMIN} />))}
         </div>

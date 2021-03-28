@@ -10,6 +10,16 @@ import {
 } from "../pages/PageInfo/parts/InfoTree/InfoTreeReducer";
 import {PageInfoBadTargetsToMove} from "../pages/PageInfo/parts/MoveElement/MoveElementReducer";
 import {InfoPageMode, InfoSelectedPage} from "../pages/PageInfo/parts/InfoPage/InfoPageReducer";
+import {
+    PageCashSelectedUserId,
+    PageCashTab
+} from "../pages/PageCash/PageCashReducer";
+import {PageCashOperationList, PageCashStatus} from "../pages/PageCash/parts/TabOperations/TabOperationsReducer";
+import {
+    PageCashOptionsStatus,
+    PageCashSelectedSheet,
+    PageCashSheetList, PageCashUserList
+} from "../pages/PageCash/parts/TabOptions/TabOptionsReducer";
 
 export default combineReducers({
     OptionsServerAddress,
@@ -21,4 +31,8 @@ export default combineReducers({
     PageInfoListPublic, PageInfoListPrivate, PageInfoPrivateExpandedSet, PageInfoBadTargetsToMove, PageInfoTreeMode,
 
     InfoSelectedPage, InfoPageMode,
+    // cash
+    PageCashTab, PageCashSelectedUserId,
+    PageCashStatus, PageCashOperationList,
+    PageCashOptionsStatus, PageCashSheetList, PageCashSelectedSheet, PageCashUserList
 });

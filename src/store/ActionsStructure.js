@@ -27,6 +27,7 @@ export let GLOBAL = fillStruct("APP", {
     ACTIVE_PAGE_LIST : {
         MAIN : "",
         INFO: "",
+        CASH: "",
         DOINGS: "",
         APP: "",
         ADMIN: "",
@@ -60,4 +61,33 @@ export let INFO = fillStruct("INFO", {
         EDITING: "",
         NOT_SELECTED: "",
     }
+})
+
+export let CASH = fillStruct("CASH", {
+    CASH_STATUS: "",
+    OPTIONS_STATUS: "",
+
+    CASH_STATUS_VALUES: {
+        OUTDATED: "",
+        LOADING: "",
+        ACTUAL: "",
+        ERROR: "",
+    },
+    CASH_TAB: "",
+    CASH_TAB_VALUES: {
+        OPTIONS: "",
+        OPERATIONS: "",
+    },
+    SELECTED_USER_ID: "",
+    OPERATION_LIST: "",
+    SHEET_LIST: "",
+    USER_LIST: "",
+    SELECTED_SHEET: "",
+})
+
+export let STATUS = fillStruct("STATUS", {
+    OUTDATED: "",
+    LOADING: "",
+    ACTUAL: "",
+    ERROR: "",
 })

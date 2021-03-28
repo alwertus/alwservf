@@ -1,7 +1,6 @@
 import store from "../../../../store/Store";
 import {getAuthHeader} from "../../../Login/LoginActions";
 import {INFO} from "../../../../store/ActionsStructure";
-import {convertToTree} from "../InfoTree/InfoTreeActions";
 
 export function getPage(id, setModeHandler, setHtmlHandler) {
     setModeHandler(INFO.PAGE_MODE_VALUES.LOADING);
@@ -65,6 +64,7 @@ export function setPage(id, newHtml, setModeHandler) {
         setModeHandler(INFO.PAGE_MODE_VALUES.ERROR);
     });
 }
+/*
 
 function deletePage(id) {
     let url = store.getState().OptionsServerAddress + "/api/v1/infolist";
@@ -91,4 +91,4 @@ function deletePage(id) {
     }).catch( e => {
         console.error("ERROR", e)
     });
-}
+}*/
