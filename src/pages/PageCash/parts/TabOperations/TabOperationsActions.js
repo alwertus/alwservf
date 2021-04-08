@@ -78,7 +78,7 @@ function sendMsg(bodyObj, changeStatus = false) {
         rsStatus = rs.status;
         return rs.json();
     }).then(rs => {
-        console.log(rs);
+        console.log("<< Response", rs);
         if (rsStatus !== 200) {
             console.log("Error");
             return;

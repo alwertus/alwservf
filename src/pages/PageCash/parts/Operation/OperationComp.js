@@ -17,9 +17,6 @@ export const OperationComp = props => {
     const [completed, setCompleted] = useState(el.actualDate !== undefined)
     const [modeShowChild, setModeShowChild] = useState(true);
 
-    // почистить от этих переменных (ниже)
-    // const [actual, setActual] = useState(el.actual);
-
     let sumPlaning = el['planned'];
     let sumActual = el['actual'];
 
@@ -112,6 +109,7 @@ export const OperationComp = props => {
 
             {/* Delete button */}
             <button onClick={() => removeRecord(el.id)}>DEL</button>
+
         </div>
 
         {/* Child list */}
