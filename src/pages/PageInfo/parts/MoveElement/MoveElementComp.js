@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import style from "./MoveElementStyl.module.scss";
+import style from "./MoveElementStyl.module.css";
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import {useDispatch} from "react-redux";
 import {setPageInfoTreeMode} from "../InfoTree/InfoTreeActions";

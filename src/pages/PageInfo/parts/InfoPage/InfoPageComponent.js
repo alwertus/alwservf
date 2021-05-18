@@ -1,7 +1,7 @@
 import React, { Component} from "react";
 import { connect } from "react-redux";
 import {withRouter} from "react-router";
-import style from "./InfoPageStyl.module.scss";
+import style from "./InfoPageStyl.module.css";
 
 class InfoPageComponent extends Component {
     constructor(props) {

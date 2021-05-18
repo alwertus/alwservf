@@ -64,25 +64,11 @@ export let INFO = fillStruct("INFO", {
 })
 
 export let CASH = fillStruct("CASH", {
-    CASH_STATUS: "",
-    OPTIONS_STATUS: "",
-
-    CASH_STATUS_VALUES: {
-        OUTDATED: "",
-        LOADING: "",
-        ACTUAL: "",
-        ERROR: "",
-    },
-    CASH_TAB: "",
-    CASH_TAB_VALUES: {
-        OPTIONS: "",
+    MODE: {
         OPERATIONS: "",
+        OPTIONS: "",
+        TEMPLATE: "",
     },
-    SELECTED_USER_ID: "",
-    OPERATION_LIST: "",
-    SHEET_LIST: "",
-    USER_LIST: "",
-    SELECTED_SHEET: "",
 })
 
 export let STATUS = fillStruct("STATUS", {

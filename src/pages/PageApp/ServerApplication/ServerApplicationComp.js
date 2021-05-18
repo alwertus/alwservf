@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./ServerApplicationStyl.module.scss";
+import style from "./ServerApplicationStyl.module.css";
 import MoodIcon from '@material-ui/icons/Mood';
 import MoodBadIcon from '@material-ui/icons/MoodBad';
 import StopIcon from '@material-ui/icons/Stop';

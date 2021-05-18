@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.elementLine {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.childrenContainer {
+  padding-left: 11px;
+}
+.childrenWrapper {
+  border-left: 2px solid grey;
+}
+
+.expandCollapseIcon {
+  display: flex;
+  cursor: pointer;
+}
+.emptyIcon {
+  display: flex;
+  margin-left: 2px;
+  color: #9c9c9c5c;
+}
+.title {
+  display: flex;
+  flex: 1;
+  user-select: none;
+}
+
+.selected {
+  color: green;
+}
+.badSelected {
+  color: red;
+}
+.showedPage {
+  background-color: #56ff0e61;
+}
+

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import style from "./TreeItemStyl.module.scss";
+import style from "./TreeItemStyl.module.css";
 import {INFO} from "../../../../store/ActionsStructure";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';

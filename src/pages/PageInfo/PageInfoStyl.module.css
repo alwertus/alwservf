@@ -8,10 +8,12 @@
   flex-direction: column;
 }
 .panelMenu {
-  @extend .panel;
+  display: flex;
+  flex-direction: column;
 }
 .panelPage {
-  @extend .panel;
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -20,12 +22,14 @@
   margin: 2px;
 }
 .cellUp {
-  @extend .cell;
+  background-color: #eafff8cc;
+  margin: 2px;
   height: 40px;
   display: flex;
   align-items: center;
 }
 .cellDown {
-  @extend .cell;
+  background-color: #eafff8cc;
+  margin: 2px;
   flex: 1;
 }

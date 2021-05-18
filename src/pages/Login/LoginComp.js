@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import style from "./LoginStyl.module.scss";
+import style from "./LoginStyl.module.css";
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';

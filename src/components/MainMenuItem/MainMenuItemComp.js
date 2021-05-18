@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./MainMenuItemStyl.module.scss";
+import style from "./MainMenuItemStyl.module.css";
 import {useHistory} from "react-router";
 import {updateActivePage} from "../MainMenu/MainMenuActions";
 import {useSelector} from "react-redux";

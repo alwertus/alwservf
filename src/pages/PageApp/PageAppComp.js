@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import style from "./PageAppStyl.module.scss";
+import style from "./PageAppStyl.module.css";
 import Button from '@material-ui/core/Button';
 import {getAppsStatus, reloadApplicationsConfig} from "./PageAppActions";
 import {ServerApplicationComp} from "./ServerApplication/ServerApplicationComp";

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import style from "./ResizerStyl.module.scss";
+import style from "./ResizerStyl.module.css";
 import {setLocalStorageValue} from "../../store/LocalStorage";
 
 export const ResizerComp = props => {

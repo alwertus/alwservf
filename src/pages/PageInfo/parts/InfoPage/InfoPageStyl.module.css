@@ -3,20 +3,20 @@
   flex-direction: column;
   flex: 1;
 }
-
-
 .cell {
   background-color: #eafff8cc;
   margin: 2px;
 }
 .cellUp {
-  @extend .cell;
+  background-color: #eafff8cc;
+  margin: 2px;
   height: 40px;
   display: flex;
   align-items: center;
 }
 .cellDown {
-  @extend .cell;
+  background-color: #eafff8cc;
+  margin: 2px;
   flex: 1;
   display: flex;
 }
@@ -25,14 +25,14 @@
   flex: 1;
   display: flex;
   padding: 5px;
-  .textEditor {
-    border: 1px solid;
-    width: auto !important;
-    height: auto !important;
-    display: flex;
-    flex: 1;
-  }
+}
 
+.textEditor {
+  border: 1px solid;
+  width: auto !important;
+  height: auto !important;
+  display: flex;
+  flex: 1;
 }
 .controlGroup {
   display: flex;

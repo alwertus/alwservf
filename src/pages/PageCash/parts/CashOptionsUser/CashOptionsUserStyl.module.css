@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    padding-right: 20px;
+    padding-top: 4px;
+    margin-top: 4px;
+    box-shadow: 1px 0px 7px #08080852;
+}
+.deleteButton {
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.name {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.access {
+    flex: 1;
+}
+.up {
+    font-weight: bold;
+}
+.dn {
+    font-size: smaller;
+}

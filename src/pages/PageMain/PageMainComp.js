@@ -1,18 +1,18 @@
 import React, {useEffect} from "react";
-import style from "./PageMainStyl.module.scss";
+import style from "./PageMainStyl.module.css";
 import {useSelector} from "react-redux";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 import {GLOBAL} from "../../store/ActionsStructure";
-// import {button1Reaction} from "./PageMainActions";
+import {sendMsg} from "../../common/SendMsg";
 
 export const PageMainComp = () => {
 
     const server = useSelector(state => state.OptionsServerAddress);
 
-    /*const onLoginClick1 = () => {
-        button1Reaction();
+    const onClick = () => {
+        sendMsg("test", {Operation : "GetSheets"})
     }
-    const onLoginClick2 = () => {
+    /*const onLoginClick2 = () => {
     }
     const onLoginClick3 = () => {
     }*/
@@ -29,5 +29,6 @@ export const PageMainComp = () => {
 
     return <div className={style.wrapper}>
         <p style={{color: "#ff0000"}} >Адрес сервера = {server}</p>
+        <input type="button" onClick={onClick} value="Test"/>
     </div>
 };

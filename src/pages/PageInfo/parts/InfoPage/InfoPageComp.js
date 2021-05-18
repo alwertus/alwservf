@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './InfoPageCustom.css';
-import style from "./InfoPageStyl.module.scss";
+import style from "./InfoPageStyl.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {getPage, setPage} from "./InfoPageActions";
 import {INFO} from "../../../../store/ActionsStructure";

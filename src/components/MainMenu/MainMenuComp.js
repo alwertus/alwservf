@@ -1,6 +1,6 @@
 import {useSelector} from "react-redux";
 import React from "react";
-import style from "./MainMenuStyl.module.scss";
+import style from "./MainMenuStyl.module.css";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import BuildIcon from '@material-ui/icons/Build';
 import {MainMenuItemComp} from "../MainMenuItem/MainMenuItemComp";

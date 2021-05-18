@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import style from "./TreeItemAddStyl.module.scss";
+import style from "./TreeItemAddStyl.module.css";
 import {ActionButtonComp} from "../../../../components/ActionButton/ActionButtonComp";
 import OkIcon from "@material-ui/icons/CheckCircleRounded";
 import {INFO} from "../../../../store/ActionsStructure";

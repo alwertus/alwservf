@@ -1,41 +1,25 @@
-export function button1Reaction() {
+import {getAuthHeader} from "../Login/LoginActions";
+import store from "../../store/Store";
 
-    let headers = new Headers();
-    headers.append("Content-Type", "application/json;charset=utf-8");
-    headers.append("Authorization", 'Basic ' + Buffer.from("admin:admin123").toString('base64'));
+export function sendMsg(target, bodyObj) {
+    const url = store.getState().OptionsServerAddress + "/api/v1/test";
+    console.log("send RqBody", bodyObj);
 
-    fetch("https://192.168.1.8:5188/infopages", {
+    let rsStatus = 0;
+    fetch(url,{
         method: "POST",
-        headers: headers,
-        body: JSON.stringify({
-            operation: "get"
-        })
-    })
-        .then((response) => response.json())
-        .then((response) => {
-            console.log("response", response);
-            switch (response.Result) {
-                case "OK":
-                    let result = JSON.parse(response.List);
-                    console.log(result);
-                    // dispatch(setTreeData(result));
-                    // dispatch(setTreeDataStatus(TREE.STATUS.SUCCESS));
-                    break;
-                case "Error":
-                    console.log("Error", response.Error);
-                    // dispatch(setErrorText(response.Error));
-                    // dispatch(setTreeDataStatus(TREE.STATUS.ERROR));
-                    break;
-                default:
-                    console.log("Unknown error");
-                    // dispatch(setErrorText("Unknown error"));
-                    // dispatch(setTreeDataStatus(TREE.STATUS.ERROR));
-            }
-            return response;
-        })
-        .catch((e) => {
-            console.log("ERROR: " + e);
-            // dispatch(setTreeDataStatus(TREE.STATUS.ERROR));
-            // dispatch(setErrorText("Проблемы соединения"));
-        });
+        headers: getAuthHeader(),
+        body: JSON.stringify(bodyObj)
+    }).then( (rs) => {
+        rsStatus = rs.status;
+        return rs.json();
+    }).then(rs => {
+        console.log("<< Response", rs);
+        if (rsStatus !== 200) {
+            console.log("Error");
+        }
+
+    }).catch( e => {
+        console.error("ERROR", e)
+    });
 }

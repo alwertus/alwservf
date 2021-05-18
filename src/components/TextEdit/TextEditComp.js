@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import style from "./TextEditStyl.module.scss";
+import style from "./TextEditStyl.module.css";
 
 export const  TextEditComp = props => {
     let propsText = props.text === undefined ? "" : props.text;

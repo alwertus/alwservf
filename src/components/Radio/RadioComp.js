@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./RadioStyl.module.scss";
+import style from "./RadioStyl.module.css";
 import {TextEditComp} from "../TextEdit/TextEditComp";
 
 export const RadioComp = props => {

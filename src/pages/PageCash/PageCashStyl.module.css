@@ -1,0 +1,34 @@
+.wrapper * {
+  /*border: 1px solid red;*/
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 4px;
+  /*border: 1px solid cyan;*/
+}
+.upLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateCheckerContainer {
+  display: flex;
+  flex: 1;
+}
+
+.pageModeSelector {
+  display: flex;
+  background-color: #c3ebefb8;
+  padding: 0 10px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.mainPartContainer {
+  background-color: #f5ffff66;
+  flex: 1;
+  border-radius: 6px;
+}

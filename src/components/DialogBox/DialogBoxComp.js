@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./DialogBoxStyl.module.scss";
+import style from "./DialogBoxStyl.module.css";
 import {ActionButtonComp} from "../ActionButton/ActionButtonComp";
 
 export const DialogBoxComp = props => {

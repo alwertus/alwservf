@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import style from "./InfoTreeStyl.module.scss";
+import style from "./InfoTreeStyl.module.css";
 import {INFO} from "../../../../store/ActionsStructure";
 import {TreeItemAddComp} from "../TreeItemAdd/TreeItemAddComp";
 import {ActionButtonComp} from "../../../../components/ActionButton/ActionButtonComp";

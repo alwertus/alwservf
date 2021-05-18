@@ -1,0 +1,42 @@
+.wrapper {
+    display: flex;
+}
+.sheetListColumn {
+    border: 1px solid #5d5d6d;
+    background-color: #82887b40;
+    box-shadow: 3px 4px 5px #5a5555;
+    border-radius: 6px;
+    flex: 1;
+    padding: 10px;
+    margin: 10px;
+}
+.userListColumn {
+    border: 1px solid #5d5d6d;
+    background-color: #82887b40;
+    box-shadow: 3px 4px 5px #5a5555;
+    border-radius: 6px;
+    flex: 1;
+    padding: 10px;
+    margin: 10px;
+}
+
+.columnTitle {
+    display: flex;
+    padding-left: 50px;
+}
+.addRecordContainer {
+    margin-top: 15px;
+    display: flex;
+}
+.errorContainer {
+    display: flex;
+    color: #b70707;
+    align-items: center;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+}
+.button {
+    margin-left: 10px;
+    display: flex;
+}

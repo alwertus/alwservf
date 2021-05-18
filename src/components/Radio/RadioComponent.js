@@ -1,7 +1,7 @@
 import React, { Component} from "react";
 import { connect } from "react-redux";
 import {withRouter} from "react-router";
-import style from "./RadioStyl.module.scss";
+import style from "./RadioStyl.module.css";
 
 class RadioComponent extends Component {
     constructor(props) {

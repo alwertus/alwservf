@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
-import style from "./OptionsStyl.module.scss";
+import style from "./OptionsStyl.module.css";
 import {GLOBAL} from "../../store/ActionsStructure";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 import {OPTIONS} from "../../store/ActionsStructure";

@@ -1,0 +1,54 @@
+.wrapper {
+  flex: 1;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  /*background-color: #a2daff;*/
+}
+
+@keyframes animYearShow {
+  from {opacity: 0;
+    width: 1px;}
+  to {opacity: 100%;
+    width: 80px;}
+}
+
+.yearAnimShow {
+  animation: animYearShow 500ms;
+}
+
+.yearAnimHide {
+  animation: animYearShow 500ms reverse ;
+}
+.yearContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.yearContainer div {
+  display: flex;
+  justify-content: center;
+  background-color: #67c53fa6;
+  border-radius: 4px;
+}
+
+.monthContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.month {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  cursor: default;
+  user-select: none;
+  border: 1px solid #ffffff7d;
+  border-radius: 6px;
+  margin: 0 10px;
+  padding: 1px 0;
+  background-color: #afafafba;
+}
+.monthChecked {
+  background-color: #aeb721e6;
+}

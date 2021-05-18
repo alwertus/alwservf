@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import style from "./PageInfoStyl.module.scss";
+import style from "./PageInfoStyl.module.css";
 import {getLocalStorageValue} from "../../store/LocalStorage";
 import {ResizerComp} from "../../components/Resizer/ResizerComp";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";

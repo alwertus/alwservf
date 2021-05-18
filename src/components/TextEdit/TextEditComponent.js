@@ -1,7 +1,7 @@
 import React, { Component} from "react";
 import { connect } from "react-redux";
 import {withRouter} from "react-router";
-import style from "./TextEditStyl.module.scss";
+import style from "./TextEditStyl.module.css";
 
 class TextEditComponent extends Component {
     constructor(props) {

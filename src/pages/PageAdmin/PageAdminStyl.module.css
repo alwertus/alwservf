@@ -9,17 +9,18 @@
 }
 .newUserWrapper {
 
-  .newUserInput {
-    margin-bottom: 10px;
-  }
+}
 
-  .newUserButton {
+.newUserInput {
+  margin-bottom: 10px;
+}
 
-  }
-  .statusOK {
-    color: green;
-  }
-  .statusError {
-    color: red;
-  }
+.newUserButton {
+
+}
+.statusOK {
+  color: green;
+}
+.statusError {
+  color: red;
 }

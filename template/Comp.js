@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {/*useSelector, */useDispatch} from "react-redux";
-import style from "./TmplStyl.module.scss";
+import style from "./TmplStyl.module.css";
 
 export const TmplComp = props => {
     const [count, setCount] = useState(0);
@@ -17,4 +17,4 @@ export const TmplComp = props => {
         <button onClick={()=> dispatch({ type: "EVENT__CHANGE_ME", newValue: "CHANGE_ME" })}>change me button</button>
 
     </div>
-};
+}

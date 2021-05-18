@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import style from "./PageAdminStyl.module.scss";
+import style from "./PageAdminStyl.module.css";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {sendUserCreate} from "./PageAdminActions";

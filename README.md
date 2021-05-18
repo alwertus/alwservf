@@ -7,9 +7,11 @@
 * месяц поделить на 2 части (или 1)
 * Невозможность удалить себя из листа
 
-## Subtitle
+## Materials:
 
-[Link](https://github.com/facebook/create-react-app).
+[Animation lesson](https://www.youtube.com/watch?v=7MMRcMutqpI)
+
+---
 This is `code`
 
 **Note: 12345**
