@@ -4,21 +4,13 @@ import Slider from '@material-ui/core/Slider';
 import {changeAccess, removeAccess} from "./CashOptionsUserActions";
 import {ActionButtonComp} from "../../../../components/ActionButton/ActionButtonComp";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogActions from '@material-ui/core/DialogActions';
-import Slide from '@material-ui/core/Slide';
-import Button from '@material-ui/core/Button';
+import {DialogBoxComp} from "../../../../components/DialogBox/DialogBoxComp";
 
 const accessMap = [
     {letter: "B", value: 0},
     {letter: "R", value: 1},
     {letter: "W", value: 2},
 ]
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
 
 export const CashOptionsUserComp = props => {
     const el = props.element;
@@ -64,17 +56,11 @@ export const CashOptionsUserComp = props => {
             />
         </div>
 
-        <Dialog
-            open={dialogOpen}
-            TransitionComponent={Transition}
-            fullWidth={true}
-            aria-labelledby="alert-dialog-slide-title">
-            <DialogTitle>Are you shure?</DialogTitle>
-            <DialogActions>
-                <Button onClick={() => {setDialogOpen(false)}} color="primary">Cancel</Button>
-                <Button onClick={() => {removeAccess(el['id'], props.updateUserListHandler)}} color="primary">Delete</Button>
-            </DialogActions>
-        </Dialog>
+        <DialogBoxComp
+            message={"Are you Shura?"}
+            onClickOk={() => removeAccess(el['id'], props.updateUserListHandler)}
+            dialogOpen={dialogOpen}
+            setDialogOpen={setDialogOpen} />
 
     </div>
 }

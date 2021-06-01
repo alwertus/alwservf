@@ -1,0 +1,9 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.columnsWrapper {
+    display: flex;
+    flex: 1;
+}

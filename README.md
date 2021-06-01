@@ -7,9 +7,11 @@
 * месяц поделить на 2 части (или 1)
 * Невозможность удалить себя из листа
 
-## Materials:
+## Links:
 
 [Animation lesson](https://www.youtube.com/watch?v=7MMRcMutqpI)
+
+[Material design](https://www.materialpalette.com/)
 
 ---
 This is `code`

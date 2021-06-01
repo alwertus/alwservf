@@ -1,6 +1,5 @@
 .wrapper {
   display: flex;
-  //flex: 1;
   justify-content: center;
   color: #565856;
   cursor: pointer;
@@ -10,4 +9,6 @@
 }
 .icon {
   display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

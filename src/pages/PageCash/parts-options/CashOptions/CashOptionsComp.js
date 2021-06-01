@@ -38,7 +38,7 @@ export const CashOptionsComp = props => {
         setNewUserName("")
     }
 
-    useEffect(() => {updateSheet();}, [])
+    useEffect(() => {updateSheet();}, [] )// eslint-disable-line react-hooks/exhaustive-deps
 
     return <div className={style.wrapper}>
         <div className={style.sheetListColumn}>

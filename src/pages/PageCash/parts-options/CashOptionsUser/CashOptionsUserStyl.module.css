@@ -1,9 +1,11 @@
 .wrapper {
+    background-color: var(--panel-alt-bg);
     display: flex;
     padding-right: 20px;
     padding-top: 4px;
     margin-top: 4px;
-    box-shadow: 1px 0px 7px #08080852;
+    box-shadow: var(--panel-alt-shadow);
+    border: var(--panel-alt-border)
 }
 .deleteButton {
     padding-right: 5px;

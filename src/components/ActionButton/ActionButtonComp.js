@@ -8,7 +8,9 @@ export const ActionButtonComp = props => {
             return <div className={classname} style={{"pointerEvents":"none"}}>{param}</div>
     }
 
-    return <div className={style.wrapper + (props['customClass'] !== undefined ? " " + props['customClass'] : "")} onClick={props.onClickHandler} style={{color : props.color}}>
+    return <div className={style.wrapper + (props['customClass'] !== undefined ? " " + props['customClass'] : "")}
+                onClick={props.onClickHandler}
+                style={{color : props.color}}>
         {drawIfParamExists(props.icon, style.icon)}
         {drawIfParamExists(props.title, style.title)}
     </div>

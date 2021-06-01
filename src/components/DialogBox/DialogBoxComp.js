@@ -1,26 +1,30 @@
 import React from "react";
-import style from "./DialogBoxStyl.module.css";
-import {ActionButtonComp} from "../ActionButton/ActionButtonComp";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogActions from "@material-ui/core/DialogActions";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import Slide from "@material-ui/core/Slide";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export const DialogBoxComp = props => {
-    return <div className={style.wrapper}>
-        <div className={style.window}>
-            <div className={style.message}>
-                {props.message}
-            </div>
-            <div className={style.buttons}>
-                <div className={style.button}>
-                    <ActionButtonComp title={"OK"}
-                                      onClickHandler={props.onOkClick}
-                    />
-                </div>
-                <div className={style.button}>
-                    <ActionButtonComp title={"Cancel"}
-                                      onClickHandler={props.onCancelClick}
-                    />
-                </div>
-            </div>
-        </div>
 
-    </div>
+    const message = props['message']
+    const onClickOk = props['onClickOk']
+    const dialogOpen = props['dialogOpen']
+    const setDialogOpen = props['setDialogOpen']
+
+    return <Dialog
+        open={dialogOpen}
+        TransitionComponent={Transition}
+        fullWidth={true}
+        aria-labelledby="alert-dialog-slide-title">
+        <DialogTitle>{message}</DialogTitle>
+        <DialogActions>
+            <Button onClick={() => {setDialogOpen(false)}} color="primary">Cancel</Button>
+            <Button onClick={() => {onClickOk(); setDialogOpen(false)}} color="primary">Ok</Button>
+        </DialogActions>
+    </Dialog>
 };

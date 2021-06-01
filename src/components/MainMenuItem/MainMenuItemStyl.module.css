@@ -3,14 +3,15 @@
   src: local('MainFont'), url(./font/vetka.otf) format('opentype');
 }
 .wrapper {
-  border: 2px solid #81d073c4;
+  border: var(--element-border);
+  background-color: var(--element-bg);
   border-radius: 8px;
   padding: 5px 10px;
   margin-left: 10px;
   font-family: MainFont, serif;
   font-size: 24px;
   font-weight: bold;
-  color: #e4ff84;;
+  color: var(--element-text);
   //min-width: 70px;
   text-align: center;
   display: flex;
@@ -18,8 +19,8 @@
   cursor: pointer;
 }
 .wrapper:hover {
-  color: #4bff00;
-  border: 2px solid #56ff0e;
+  /*color: #4bff00;*/
+  border: var(--element-hover-border);
 }
 .text {
   flex: 1;
@@ -30,7 +31,7 @@
   pointer-events: none;
 }
 .act {
-  color: #00f2ffe3;
-  border: 2px solid #00c4ffab;
-  background-color: #00000045;
+  color: var(--element-active-text);
+  border: var(--element-active-border);
+  background-color: var(--element-active-bg);
 }

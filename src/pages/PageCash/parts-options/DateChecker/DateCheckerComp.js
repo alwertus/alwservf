@@ -5,8 +5,10 @@ import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 export const DateCheckerComp = props => {
 
-    const [currentYear, setCurrentYear] = useState((new Date()).getFullYear());
-    const [currentMonth, setCurrentMonth] = useState((new Date()).getMonth());
+    const currentYear = props.year;
+    const setCurrentYear = props.setYear;
+    const currentMonth = props.month;
+    const setCurrentMonth = props.setMonth;
     const [yearList, setYearList] = useState([currentYear - 1, currentYear, currentYear + 1])
     const monthNames = ["January","February","March","April","May","June","July",
         "August","September","October","November","December"];
@@ -54,6 +56,6 @@ export const DateCheckerComp = props => {
             </div>)}
         </div>
 
-        {currentYear + " " + monthNames[currentMonth]}
+        {/*{currentYear + " " + monthNames[currentMonth]}*/}
     </div>
 }

@@ -81,7 +81,6 @@ export const InfoPageComp = props => {
                 <ActionButtonComp
                     icon={<DeleteForeverIcon fontSize="large"/>}
                     onClickHandler={() => {
-                        console.log("REMOVE", infoSelectedPage)
                         setShowDeleteDialog(true);
                     }}
                 />
@@ -107,19 +106,13 @@ export const InfoPageComp = props => {
             </div>
     }
 
-    let drawDeleteDialogBox = () => showDeleteDialog
-        ? <DialogBoxComp
-            message={"Zazaza"}
-            onCancelClick={() => {setShowDeleteDialog(false)}}
-            onOkClick={() => {
-
-                setShowDeleteDialog(false);
-            }}
-        /> : null;
-
     return <div className={style.wrapper}>
 
-        {drawDeleteDialogBox()}
+        {<DialogBoxComp
+            message={"Are you sure you want to delete the page?"}
+            onClickOk={() => console.log("TODO DELETE PAGE ID=" + infoSelectedPage)}
+            dialogOpen={showDeleteDialog}
+            setDialogOpen={setShowDeleteDialog} />}
 
         <div className={style.cellUp}>
             {drawControls()}

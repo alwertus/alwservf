@@ -1,0 +1,78 @@
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 5px 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    border: var(--panel-alt-border);
+    padding: 3px;
+    border-radius: var(--panel-alt-border-radius);
+    background-color: var(--panel-alt-bg);
+}
+.titleLine {
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+.line {
+    display: flex;
+    flex-direction: row;
+}
+
+.sign {
+    flex-direction: column;
+    justify-content: center;
+    margin: 2px;
+}
+.inputsGroup {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+}
+.inputLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.inputLineText {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-right: 10px;
+}
+.inputLine>input {
+    background-color: #c5e2ff2e;
+    border: 1px solid #23242536;
+    border-radius: 4px;
+    color: var(--panel-alt-text);
+    margin-top: 5px;
+}
+input:focus {
+    outline: none;
+    border: var(--element-active-border);
+}
+.buttonOk {
+    display: flex;
+    flex-direction: column;
+    min-width: 36px;
+    font-size: 32px;
+    color: #51777b;
+    border-radius: var(--element-border-radius);
+    box-shadow: var(--element-shadow);
+    margin: 7px 5px;
+}
+.buttonOkTrue:hover {
+    color: var(--element-hover-text);
+}
+.buttonOkFalse:hover {
+    color: var(--error-text);
+}

@@ -1,20 +1,19 @@
 .wrapper {
     display: flex;
+    flex: 1;
 }
 .sheetListColumn {
-    border: 1px solid #5d5d6d;
-    background-color: #82887b40;
-    box-shadow: 3px 4px 5px #5a5555;
-    border-radius: 6px;
+    background-color: var(--panel-bg);
+    box-shadow: var(--panel-shadow);
+    border-radius: var(--panel-border-radius);
     flex: 1;
     padding: 10px;
     margin: 10px;
 }
 .userListColumn {
-    border: 1px solid #5d5d6d;
-    background-color: #82887b40;
-    box-shadow: 3px 4px 5px #5a5555;
-    border-radius: 6px;
+    background-color: var(--panel-bg);
+    box-shadow: var(--panel-shadow);
+    border-radius: var(--panel-border-radius);
     flex: 1;
     padding: 10px;
     margin: 10px;
@@ -30,7 +29,7 @@
 }
 .errorContainer {
     display: flex;
-    color: #b70707;
+    color: var(--error-text);
     align-items: center;
     flex: 1;
     flex-direction: column;

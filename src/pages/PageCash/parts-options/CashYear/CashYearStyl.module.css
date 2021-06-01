@@ -1,9 +1,9 @@
 .wrapper {
-
   cursor: default;
   user-select: none;
   width: 80px;
   font-weight: bold;
+
 }
 .wrapperSmall {
   display: flex;
@@ -12,5 +12,5 @@
   user-select: none;
   width: 80px;
   font-size: smaller;
-  color: #404040;
+  color: var(--element-text);
 }

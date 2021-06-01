@@ -5,15 +5,7 @@ import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import {ActionButtonComp} from "../../../../components/ActionButton/ActionButtonComp";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogActions from "@material-ui/core/DialogActions";
-import Button from "@material-ui/core/Button";
-import Slide from "@material-ui/core/Slide";
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
+import {DialogBoxComp} from "../../../../components/DialogBox/DialogBoxComp";
 
 export const CashOptionsSheetItemComp = props => {
     const isActive = props.element['active'];
@@ -30,6 +22,8 @@ export const CashOptionsSheetItemComp = props => {
             {props.element['sheetName']}
         </div>
 
+        /columns=2/
+
         <div className={style.deleteWrapper}>
             {!isActive && <ActionButtonComp
                 icon={<DeleteForeverIcon/>}
@@ -38,20 +32,11 @@ export const CashOptionsSheetItemComp = props => {
             />}
         </div>
 
-        <Dialog
-            open={dialogOpen}
-            TransitionComponent={Transition}
-            fullWidth={true}
-            aria-labelledby="alert-dialog-slide-title">
-            <DialogTitle>Are you shure?</DialogTitle>
-            <DialogActions>
-                <Button onClick={() => {setDialogOpen(false)}} color="primary">Cancel</Button>
-                <Button onClick={() => {
-                    deleteSheet(props.element['sheetId'],  props.updateSheetHandler);
-                    setDialogOpen(false)}}
-                        color="primary">Delete</Button>
-            </DialogActions>
-        </Dialog>
+        <DialogBoxComp
+            message={"Are you Shura?"}
+            onClickOk={() => deleteSheet(props.element['sheetId'],  props.updateSheetHandler)}
+            dialogOpen={dialogOpen}
+            setDialogOpen={setDialogOpen} />
 
     </div>
 }

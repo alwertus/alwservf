@@ -1,8 +1,10 @@
 .app {
+    /*font-family: Font, serif;*/
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-image: url("img/Alwertus Server BG.png");
+    /*background-image: url("img/Alwertus Server BG.png");*/
+    background-color: var(--bg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -11,5 +13,4 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-
 }
