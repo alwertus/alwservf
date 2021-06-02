@@ -96,3 +96,6 @@
 .buttonRotateUp {
     transform: rotate(-90deg);
 }
+.copiedIcon {
+    color: #5c5fc5;
+}

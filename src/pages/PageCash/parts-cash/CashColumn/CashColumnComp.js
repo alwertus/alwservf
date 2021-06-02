@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import style from "./CashColumnStyl.module.css";
 import {CashGroupComp} from "../CashGroup/CashGroupComp";
 import {CashGroupNewComp} from "../CashGroupNew/CashGroupNewComp";
-import {columnRename, createCashGroup, getList} from "./CashColumnActions";
+import {autoFill, columnRename, createCashGroup, getList} from "./CashColumnActions";
 import {ColumnSummaryComp} from "../ColumnSummary/ColumnSummaryComp";
 import DescriptionIcon from '@material-ui/icons/Description';
 import {ThunderboltOutlined} from "@ant-design/icons";
@@ -13,6 +13,7 @@ export const CashColumnComp = props => {
     const index = props.index
     const year = props.year
     const month = props.month
+    const isTemplate = !(year === 0 && month === 0)
     const [list, setList] = useState([])
     const [title, setTitle] = useState("Column " + (index + 1))
     const [titleLoaded, setTitleLoaded] = useState("Column " + (index + 1))
@@ -32,8 +33,10 @@ export const CashColumnComp = props => {
     }
 
     const addGroupHandler = (sign, name, limit) => {
-        createCashGroup(updateList, sign, name, limit, year, month, index)
+        createCashGroup(forceUpdateList, sign, name, limit, year, month, index)
     }
+
+    const autoFillHandler = () => autoFill(forceUpdateList, year, month, index)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(forceUpdateList,[year, month, index])
@@ -50,12 +53,13 @@ export const CashColumnComp = props => {
                     }
                 />
             </div>
-            {/*<button className={style.button} type="button" onClick={forceUpdateList}>Autofill</button>*/}
-            <ActionButtonComp
-                icon={<ThunderboltOutlined />}
+
+            {isTemplate && <ActionButtonComp
+                icon={<ThunderboltOutlined/>}
                 customClass={style.button}
-                onClickHandler={forceUpdateList}
-            />
+                onClickHandler={autoFillHandler}
+            />}
+
             <ActionButtonComp
                 icon={<DoubleArrowIcon style={{transform: "rotate(-90deg)"}}/>}
                 customClass={style.button}

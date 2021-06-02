@@ -9,6 +9,7 @@ import {ActionButtonComp} from "../../../../components/ActionButton/ActionButton
 import {SvgDiagram} from "../../../../common/SvgDiagram";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import {DialogBoxComp} from "../../../../components/DialogBox/DialogBoxComp";
+import {ThunderboltOutlined} from "@ant-design/icons";
 
 
 export const CashGroupComp = props => {
@@ -66,6 +67,8 @@ export const CashGroupComp = props => {
         <div className={style.mainPart}>
             <div className={style.content}>
                 <div className={style.title}>
+                    {props.element['copySign'] && props.element['copySign'] === "Y"
+                    && <ThunderboltOutlined className={style.copiedIcon}/>}
                     <input
                         value={name}
                         onChange={e => {setName(e.target.value)}}

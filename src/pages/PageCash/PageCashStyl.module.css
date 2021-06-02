@@ -7,7 +7,6 @@
   flex-direction: column;
   flex: 1;
   margin: 4px;
-  /*border: 1px solid cyan;*/
 }
 .upLine {
   display: flex;
@@ -21,10 +20,12 @@
 
 .pageModeSelector {
   display: flex;
-  background-color: #c3ebefb8;
-  padding: 0 10px;
-  border-radius: 8px;
-  margin: 15px 0;
+  flex-direction: column;
+  margin-right: 5px;
+}
+.pageModeSelectorButton {
+  font-size: 0.8em;
+  margin-bottom: auto;
 }
 
 .mainPartContainer {

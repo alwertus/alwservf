@@ -47,3 +47,13 @@ export function columnRename(updateListHandler, year, month, column, newName) {
         (rs)=>{updateListHandler()},
         (err)=>{console.error("ColumnRename", err)})
 }
+export function autoFill(updateListHandler, year, month, column) {
+    sendMsg(TARGET,
+        {Operation : "AutoFill",
+            Year : year,
+            Month : month,
+            Column : column,
+        },
+        (rs)=>{updateListHandler()},
+        (err)=>{console.error("AutoFill", err)})
+}

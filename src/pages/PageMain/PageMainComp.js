@@ -28,7 +28,7 @@ export const PageMainComp = () => {
      */
 
     return <div className={style.wrapper}>
-        <p style={{color: "#ff0000"}} >Адрес сервера = {server}</p>
-        <input type="button" onClick={onClick} value="Test"/>
+        {/*<p style={{color: "#ff0000"}} >Адрес сервера = {server}</p>*/}
+        {/*<input type="button" onClick={onClick} value="Test"/>*/}
     </div>
 };

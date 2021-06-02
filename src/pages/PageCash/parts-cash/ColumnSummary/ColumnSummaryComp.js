@@ -37,10 +37,10 @@ export const ColumnSummaryComp = props => {
                 color:"#ff9393",
                 colorBad:"#690707",
                 text: "spent: " + allMinusFact},
-            total: {    value : allPlusPlan,
+            total: {
+                value : allPlusPlan,
                 color:"#FFF",
-                colorBad:"#F00",
-                text:"income plan: " + allPlusPlan}, }
+                colorBad:"#F00",}, }
         ])}
     </div>
 }
