@@ -8,8 +8,10 @@ export const CashTabComp = props => {
     const selectedYear = props.year;
     const selectedMonth = props.month;
     const [columnCount, setColumnCount] = useState(0)
-    const [sheetName, setSheetName] = useState("")
+    // const [sheetName, setSheetName] = useState("")
     const [columnList, setColumnList] = useState([]);
+
+    const setSheetName = () => {}
 
     useEffect(() => getSheetParam(setColumnCount, setSheetName), []) // eslint-disable-line react-hooks/exhaustive-deps
 

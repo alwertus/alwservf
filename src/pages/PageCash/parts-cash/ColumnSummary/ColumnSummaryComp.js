@@ -13,7 +13,7 @@ export const ColumnSummaryComp = props => {
         ? prev + cur.lines.reduce((p,c) => c['completed'] ? p + c['sumActual'] : p ,0)
         : prev, 0)
 
-    // let allMinusPlan = list.reduce((prev, cur) => cur['sign'] === "-" ? prev + cur['sumLimit'] : prev, 0)
+    let allMinusPlan = list.reduce((prev, cur) => cur['sign'] === "-" ? prev + cur['sumLimit'] : prev, 0)
 
     let allMinusFact = list.reduce((prev, cur) => cur['sign'] === "-"
         ? prev + cur.lines.reduce((p,c) => c['completed'] ? p + c['sumActual'] : p ,0)
@@ -37,10 +37,15 @@ export const ColumnSummaryComp = props => {
                 color:"#ff9393",
                 colorBad:"#690707",
                 text: "spent: " + allMinusFact},
+            medium: {
+                value : allMinusPlan,
+                color:"#bac8d3",
+                colorBad:"#bd7777",},
             total: {
                 value : allPlusPlan,
                 color:"#FFF",
-                colorBad:"#F00",}, }
+                colorBad:"#F00",
+                text: "spent plan: " + allMinusPlan}, }
         ])}
     </div>
 }

@@ -29,13 +29,28 @@ export function SvgDiagram(W, H, lines = []) {
         const curVal = line.current.value
         const curText = line.current.text
         const totalText = line.total.text
+
         const correct = totalVal >= curVal
         const pc = correct
             ? curVal / totalVal
             : totalVal / curVal
 
-        objects.push(rect(0, textHeight + lineHeight * lineNum, W * pc, correct ? line.current.color : line.current.colorBad))
+
         objects.push(rect(W * pc, textHeight + lineHeight * lineNum, W * (1 - pc), correct ? line.total.color : line.total.colorBad))
+
+        if (line.medium) {
+            const mediumVal = line.medium.value
+            const mediumCorrect = totalVal >= mediumVal
+            const mediumPc = mediumCorrect
+                ? mediumVal / totalVal
+                : totalVal / mediumVal
+
+            objects.push(rect(0, textHeight + lineHeight * lineNum, W * mediumPc, correct ? line.medium.color : line.medium.colorBad))
+
+        }
+        objects.push(rect(0, textHeight + lineHeight * lineNum, W * pc, correct ? line.current.color : line.current.colorBad))
+
+
         if (isUpText || isDnText) {
             curText && objects.push(text(2, isUpText ? 13 : H - 2, curText))
             totalText && objects.push(text(W - 2, isUpText ? 13 : H - 2, totalText, true))

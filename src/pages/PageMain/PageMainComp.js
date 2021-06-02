@@ -1,17 +1,15 @@
 import React, {useEffect} from "react";
 import style from "./PageMainStyl.module.css";
-import {useSelector} from "react-redux";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 import {GLOBAL} from "../../store/ActionsStructure";
-import {sendMsg} from "../../common/SendMsg";
 
 export const PageMainComp = () => {
 
-    const server = useSelector(state => state.OptionsServerAddress);
-
-    const onClick = () => {
-        sendMsg("test", {Operation : "GetSheets"})
-    }
+    // const server = useSelector(state => state.OptionsServerAddress);
+    //
+    // const onClick = () => {
+    //     sendMsg("test", {Operation : "GetSheets"})
+    // }
     /*const onLoginClick2 = () => {
     }
     const onLoginClick3 = () => {
