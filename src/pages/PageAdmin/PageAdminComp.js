@@ -6,6 +6,7 @@ import {sendUserCreate} from "./PageAdminActions";
 import {useSelector} from "react-redux";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 import {GLOBAL} from "../../store/ActionsStructure";
+import {TodoListComp} from "./parts/TodoList/TodoListComp";
 
 export const PageAdminComp = () => {
 
@@ -16,9 +17,9 @@ export const PageAdminComp = () => {
         password: '',
         password2: '',
     });
-    const [resultText, setResultText] = useState("");
-    const [resultStatus, setResultStatus] = useState(0);
-    const server = useSelector(state => state.OptionsServerAddress);
+    const [resultText, setResultText] = useState("")
+    const [resultStatus, setResultStatus] = useState(0)
+    const server = useSelector(state => state.OptionsServerAddress)
 
     const handleChange = (prop) => (event) => {
         setResultText('');
@@ -69,8 +70,10 @@ export const PageAdminComp = () => {
 
     useEffect(() => updateActivePage(GLOBAL.ACTIVE_PAGE_LIST.ADMIN),[])
 
+
+
     return <div className={style.wrapper}>
-        <div className={style.newUserWrapper}>
+        <div className={style.actionPanel}>
 
             <h2>Create new user</h2>
 
@@ -119,6 +122,10 @@ export const PageAdminComp = () => {
             <h4>Result: </h4>
             <h3 className={getClassNameFromResultStatus()}>{resultText}</h3>
 
+        </div>
+
+        <div className={style.actionPanel}>
+            <TodoListComp/>
         </div>
     </div>
 }

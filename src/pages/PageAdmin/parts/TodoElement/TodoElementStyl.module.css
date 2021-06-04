@@ -1,0 +1,17 @@
+.wrapper {
+    background-color: var(--element-bg);
+    margin-top: 10px;
+    border-radius: 6px;
+}
+.line {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+}
+.date {
+    font-size: 0.8em;
+}
+.textArea {
+    flex: 1;
+    min-height: 100px;
+}

@@ -36,6 +36,11 @@ export function sendMsg(target, bodyObj, successHandler = () => {}, errorHandler
             errorHandler("Error status response = " + rsStatus);
             return;
         }
+        if (!rs["Result"]) {
+            errorHandler("Result is NULL")
+            return;
+        }
+
         if (rs["Result"] !== "Ok") {
             errorHandler(rs["Error"]);
             return;

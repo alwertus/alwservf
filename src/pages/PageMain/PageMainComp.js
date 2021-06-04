@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import style from "./PageMainStyl.module.css";
 import {updateActivePage} from "../../components/MainMenu/MainMenuActions";
 import {GLOBAL} from "../../store/ActionsStructure";
+import {ChangeListComp} from "./parts/ChangeList/ChangeListComp";
 
 export const PageMainComp = () => {
 
@@ -26,6 +27,7 @@ export const PageMainComp = () => {
      */
 
     return <div className={style.wrapper}>
+        <ChangeListComp/>
         {/*<p style={{color: "#ff0000"}} >Адрес сервера = {server}</p>*/}
         {/*<input type="button" onClick={onClick} value="Test"/>*/}
     </div>
