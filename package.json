@@ -1,23 +1,22 @@
 {
   "name": "alwservf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "^4.6.2",
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "ace-builds": "^1.4.12",
-    "antd": "^4.15.6",
-    "node-sass": "^6.0.0",
-    "react": "^17.0.2",
-    "react-ace": "^9.4.0",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.4",
-    "react-router": "^5.2.0",
-    "react-scripts": "^4.0.3",
-    "react-transition-group": "^4.4.1",
-    "redux": "^4.1.0",
-    "redux-thunk": "^2.3.0"
+    "@ant-design/icons": "latest",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
+    "ace-builds": "latest",
+    "antd": "latest",
+    "react": "latest",
+    "react-ace": "latest",
+    "react-dom": "latest",
+    "react-redux": "latest",
+    "react-router": "latest",
+    "react-scripts": "latest",
+    "react-transition-group": "latest",
+    "redux": "latest",
+    "redux-thunk": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,6 +42,6 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "latest"
   }
 }

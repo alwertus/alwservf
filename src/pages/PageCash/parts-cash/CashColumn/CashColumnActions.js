@@ -25,12 +25,12 @@ export function getList(updateListHandler, setTitleHandler, year, month, column)
         },
         (rs)=>{
             let list = rs['List']
-                .sort((a, b) => {
+                /*.sort((a, b) => {
                     if (a['sign'] === "+" && b['sign'] !== "+") return -1;
                     if (a['sign'] === "-" && b['sign'] !== "-") return 1;
                     if (a['sequence'] !== b['sequence']) return a['sequence'] < b['sequence'];
                     return b['sumLimit'] - a['sumLimit'];
-                })
+                })*/
             updateListHandler(list)
             setTitleHandler(rs['ColumnName'] ? rs['ColumnName'] : "Column " + (column + 1))
         },

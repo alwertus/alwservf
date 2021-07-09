@@ -6,7 +6,7 @@ import {CashLineComp} from "../CashLine/CashLineComp";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import {DoubleRightOutlined, MinusCircleOutlined, PlusCircleOutlined} from '@ant-design/icons';
 import {ActionButtonComp} from "../../../../components/ActionButton/ActionButtonComp";
-import {SvgDiagram} from "../../../../common/SvgDiagram";
+import {SvgDiagramOld} from "../../../../common/SvgDiagramOld";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import {DialogBoxComp} from "../../../../components/DialogBox/DialogBoxComp";
 import {ThunderboltOutlined} from "@ant-design/icons";
@@ -34,7 +34,7 @@ export const CashGroupComp = props => {
 
     const drawSVG = () => {
         return isPositive
-            ? SvgDiagram(300, 70, [
+            ? SvgDiagramOld(300, 70, [
                 {   current: {  value : fact,
                                 color:"#6D8764",
                                 colorBad:"#36e816",
@@ -45,7 +45,7 @@ export const CashGroupComp = props => {
                                 text: "plan: " + plan
                     },
                 },])
-            : SvgDiagram(300, 70, [
+            : SvgDiagramOld(300, 70, [
             {   current: {  value : plan,
                             color:"#BAC8D3",
                             colorBad:"#654747",

@@ -1,11 +1,17 @@
 import React from "react";
 
-export function SvgDiagram(W, H, lines = []) {
+export function SvgDiagram(
+    W,
+    textsUp = [],
+    lines = [],
+    textsDn = []) {
 
-    const textHeight = 18
-    const lineHeight = (H - textHeight * lines.length) / 2
+    const lineHeight = 16;
+    const H = lineHeight * (lines.length + textsUp.length + textsDn.length)
 
     let objects = []
+
+    let lastY = 2
 
     const rect = (x, y, w, color) => w && <rect
         key={objects.length}
@@ -14,53 +20,50 @@ export function SvgDiagram(W, H, lines = []) {
         width={w}
         height={lineHeight}
         style={{fill:color}}/>
-    const text = (x, y, text, rightAlign = false) => <text
+
+    const text = (x, y, text, textAnchor = "start") => <text
         key={objects.length}
         x={x}
         y={y}
         fontSize=".8em"
         fill="black"
-        textAnchor={rightAlign ? "end" : "start"}>
+        textAnchor={textAnchor}>
         {text}</text>
 
-    function fillLineObjects(lineNum, line, isUpText, isDnText) {
-        // console.error(line)
-        const totalVal = line.total.value
-        const curVal = line.current.value
-        const curText = line.current.text
-        const totalText = line.total.text
-
-        const correct = totalVal >= curVal
-        const pc = correct
-            ? curVal / totalVal
-            : totalVal / curVal
-
-
-        objects.push(rect(W * pc, textHeight + lineHeight * lineNum, W * (1 - pc), correct ? line.total.color : line.total.colorBad))
-
-        if (line.medium) {
-            const mediumVal = line.medium.value
-            const mediumCorrect = totalVal >= mediumVal
-            const mediumPc = mediumCorrect
-                ? mediumVal / totalVal
-                : totalVal / mediumVal
-
-            objects.push(rect(0, textHeight + lineHeight * lineNum, W * mediumPc, correct ? line.medium.color : line.medium.colorBad))
-
-        }
-        objects.push(rect(0, textHeight + lineHeight * lineNum, W * pc, correct ? line.current.color : line.current.colorBad))
-
-
-        if (isUpText || isDnText) {
-            curText && objects.push(text(2, isUpText ? 13 : H - 2, curText))
-            totalText && objects.push(text(W - 2, isUpText ? 13 : H - 2, totalText, true))
-        }
+    const pushTextToObjects = (e) => {
+        e.begin && objects.push(text(2, lastY + 11, e.begin))
+        e.center && objects.push(text(W / 2, lastY + 11, e.center, "middle"))
+        e.end && objects.push(text(W - 2, lastY + 11, e.end, "end"))
+        lastY += lineHeight
     }
 
-    lines.forEach((e, ind)=> fillLineObjects(ind, e, ind === 0, ind === lines.length - 1))
+    // all texts up line
+    textsUp.forEach(pushTextToObjects)
+
+    // all graphical lines
+    lines && lines.forEach(e => {
+        let lastX = 0
+        const maxValue = e.totalValue
+        // all parts in one line
+        e.parts && e.parts.forEach(p => {
+            const calcWidth =  W * (p.value / maxValue)
+            objects.push(rect(lastX, lastY, calcWidth, p.color))
+            lastX += calcWidth
+        })
+        lastY += lineHeight
+    })
+    lastY += 2;
+
+    // all texts down line
+    textsDn.forEach(pushTextToObjects)
 
     return <svg width={W} height={H}>
         {objects.map(e => e)}
-        <rect x="0" y={textHeight} width={W - 1} height={lines.length * lineHeight} style={{strokeWidth:"1",stroke:"#000", fill:"none"}}/>{/*border*/}
+
+        {<rect x="1"
+               y={lineHeight * (textsUp.length) + 1}
+               width={W - 2}
+               height={lines.length * lineHeight}
+               style={{strokeWidth:"1",stroke:"#000", fill:"none"}}/>}
     </svg>
 }
