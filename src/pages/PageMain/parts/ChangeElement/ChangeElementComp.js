@@ -7,7 +7,6 @@ export const ChangeElementComp = props => {
     const decision = el['decision']
     const author = el['executor']
 
-    console.log(el)
     return <div className={style.wrapper}>
         <div className={style.title}>
             <div className={style.author}>{author}</div>
