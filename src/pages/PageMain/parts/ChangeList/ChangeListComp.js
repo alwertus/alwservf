@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
 import style from "./ChangeListStyl.module.css";
-import {getTodo} from "../../../PageAdmin/parts/TodoList/TodoListActions";
+//import {getTodo} from "../../../PageAdmin/parts/TodoList/TodoListActions";
 import {ChangeElementComp} from "../ChangeElement/ChangeElementComp";
+import {getNews} from "./ChangeListActions";
 
 export const ChangeListComp = props => {
     const [todoList, setTodoList] = useState([])
 
     const updateList = () => {
-        getTodo(setTodoList);
+        getNews(setTodoList);
     }
 
     useEffect(updateList, [])

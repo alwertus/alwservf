@@ -9,6 +9,14 @@ export const CashGroupNewComp = props => {
     const [sum, setSum] = useState("")
     const [okBtnAvailable, setOkBtnAvailable] = useState(false)
 
+    const onOkClickHandler = () => {
+        if (okBtnAvailable) {
+            props.onAdd(isPositive, name, sum);
+            setName("");
+            setSum("");
+        }
+    }
+
     useEffect(() => {
         setOkBtnAvailable(name !== "" && (isPositive || (sum !== "" && sum !== "0")))
     }, [name, sum, isPositive])
@@ -34,6 +42,7 @@ export const CashGroupNewComp = props => {
                         <input
                             placeholder="Group Name"
                             value={name}
+                            onKeyPress={e => e.key === "Enter" && onOkClickHandler()}
                             onChange={e => setName(e.target.value)}/>
                     </div>
                     <div className={style.inputLine}>
@@ -41,6 +50,7 @@ export const CashGroupNewComp = props => {
                         <input
                             placeholder="Sum limit"
                             value={sum}
+                            onKeyPress={e => e.key === "Enter" && onOkClickHandler()}
                             onChange={e => setSum(e.target.value)}/>
                     </div>
                 </div>
@@ -48,13 +58,7 @@ export const CashGroupNewComp = props => {
                 <ActionButtonComp
                     icon={<CheckCircleOutlined />}
                     customClass={style.buttonOk + " " + (okBtnAvailable ? style.buttonOkTrue : style.buttonOkFalse)}
-                    onClickHandler={()=>{
-                        if (okBtnAvailable) {
-                            props.onAdd(isPositive, name, sum);
-                            setName("");
-                            setSum("");
-                        }
-                    }}
+                    onClickHandler={onOkClickHandler}
                 />
             </div>
         </div>

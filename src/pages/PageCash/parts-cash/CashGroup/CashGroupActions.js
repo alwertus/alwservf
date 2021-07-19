@@ -35,6 +35,6 @@ export function deleteGroup(updateListHandler, id) {
         {Operation : "DeleteGroup",
             Id : id,
         },
-        (rs)=>{updateListHandler()},
+        (rs)=>{updateListHandler(true)},
         (err)=>{console.error("DeleteGroup", err)})
 }

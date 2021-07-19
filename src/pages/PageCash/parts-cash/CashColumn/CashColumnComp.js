@@ -23,8 +23,8 @@ export const CashColumnComp = props => {
         setTitleLoaded(val)
     }
 
-    const updateList = () => {
-        getList(setList, setTitles, year, month, index);
+    const updateList = (forceUpdate = false) => {
+        getList(setList, setTitles, year, month, index, forceUpdate);
     }
 
     const forceUpdateList = () => {

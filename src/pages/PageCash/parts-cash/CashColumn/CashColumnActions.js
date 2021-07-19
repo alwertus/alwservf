@@ -16,7 +16,7 @@ export function createCashGroup(updateListHandler, sign, name, limit, year, mont
         (err)=>{console.error("CreateCashGroup", err)})
 }
 
-export function getList(updateListHandler, setTitleHandler, year, month, column) {
+export function getList(updateListHandler, setTitleHandler, year, month, column, forceUpdate = false) {
     sendMsg(TARGET,
         {Operation : "GetColumnData",
             Year : year,
@@ -31,6 +31,7 @@ export function getList(updateListHandler, setTitleHandler, year, month, column)
                     if (a['sequence'] !== b['sequence']) return a['sequence'] < b['sequence'];
                     return b['sumLimit'] - a['sumLimit'];
                 })*/
+            forceUpdate && updateListHandler([])
             updateListHandler(list)
             setTitleHandler(rs['ColumnName'] ? rs['ColumnName'] : "Column " + (column + 1))
         },

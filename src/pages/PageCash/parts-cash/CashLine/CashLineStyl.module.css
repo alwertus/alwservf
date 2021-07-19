@@ -28,6 +28,9 @@
     text-align: center;
     padding: 0;
 }
+.cashTD > span {
+    padding: 1px;
+}
 .additionalInfoWindow {
     display: flex;
     flex-direction: column;
